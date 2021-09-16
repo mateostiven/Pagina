@@ -1,12 +1,15 @@
 <?php
-
+	
+ 
 class MySQL{
+	
     private $oConBD=null;
 
-    public function _construct(){
-    } 
+    public function _construct(){} 
+
     public function conBDOB(){
-        $this->oConBD=new mysqli('taxi.cvejcfpsnjtv.us-west-2.rds.amazonaws.com','admin','Personaje_26','taxi');
+	include './Config.php';
+        $this->oConBD=new mysqli($Host,$Usuario,$Clave,'Taxi');
         if ($this-> oConBD -> connect_error){
             echo "Error al conectarse".$this->oConBD->connect_error."\n";
             return false;
@@ -21,7 +24,6 @@ class MySQL{
             echo "0 results";
           }
           return $row;
-          
     }
 
 }
