@@ -1,8 +1,5 @@
 <!DOCTYPE html> 
 
-
-
-
 <html>
     <head>
 
@@ -22,7 +19,6 @@
        }
       </style>
 
-
         <script 
             src="https://code.jquery.com/jquery-3.6.0.js" 
             integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" 
@@ -32,11 +28,6 @@
 
 
     </head>
-
-    
-
-
-
 
     <body>
         <h1 align ="center">Taxi GPS</h1>
@@ -73,19 +64,10 @@
             </table>
             <br>
             <div id='map'></div>
-
-          
-            
-
     </body>
 </html>
 
 <script type="text/javascript">
-
-
-
-
-  
 
     $(document).ready(function(){
 
@@ -127,7 +109,6 @@
 
                 })
 
-                
                 $('#coordenadas').load("./Latitud.php", function(){
 
                   var coordenadas = ($("#coordenadas").text());
@@ -138,12 +119,11 @@
 
                   var Longitud = ""+coordenadas_1[0]+"";
                 
-                
-
                   $('#Latitud').text(Latitud);
                   $('#Longitud').text(Longitud);
 
                   map.panTo(new L.LatLng(parseFloat($('#Latitud').text()),parseFloat($('#Longitud').text())));
+<<<<<<< HEAD
                   Marcador.setLatLng([parseFloat($('#Latitud').text()),parseFloat($('#Longitud').text())]); 
                   polyline.addLatLng([parseFloat($('#Latitud').text()),parseFloat($('#Longitud').text())]);
 		  
@@ -151,6 +131,12 @@
 
        
             },5000
+=======
+                  L.marker([parseFloat($('#Latitud').text()),parseFloat($('#Longitud').text())],{draggable: false}).addTo(map)
+                });
+
+            },10000
+>>>>>>> e0d520ab5d417e15a17d2826e00a20f0d01e826d
         );
 
     });
