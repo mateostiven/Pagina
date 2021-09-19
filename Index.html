@@ -122,21 +122,15 @@
                   $('#Latitud').text(Latitud);
                   $('#Longitud').text(Longitud);
 
+                  
                   map.panTo(new L.LatLng(parseFloat($('#Latitud').text()),parseFloat($('#Longitud').text())));
-<<<<<<< HEAD
+                  polyline.addLatLng([parseFloat($('#Latitud').text()),parseFloat($('#Longitud').text())]); 
                   Marcador.setLatLng([parseFloat($('#Latitud').text()),parseFloat($('#Longitud').text())]); 
-                  polyline.addLatLng([parseFloat($('#Latitud').text()),parseFloat($('#Longitud').text())]);
-		  
+
+
                 });
 
-       
-            },5000
-=======
-                  L.marker([parseFloat($('#Latitud').text()),parseFloat($('#Longitud').text())],{draggable: false}).addTo(map)
-                });
-
-            },10000
->>>>>>> e0d520ab5d417e15a17d2826e00a20f0d01e826d
+            },1000
         );
 
     });
@@ -149,3 +143,4 @@
 
   
 </script>
+
