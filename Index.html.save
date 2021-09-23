@@ -77,21 +77,6 @@
                   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 });
                 OpenStreetMap_Mapnik.addTo(map);
-		polyline = L.polyline([]).addTo(map);
-		Marcador= L.marker([0,0]).addTo(map);		
-
-	  $('#coordenadas').load("./Latitud.php", function(){
-
-                var coordenadas = ($("#coordenadas").text());
-
-                var coordenadas_1 = coordenadas.split("_");
-
-                var Latitud = ""+coordenadas_1[1]+"";
-
-                var Longitud = ""+coordenadas_1[0]+"";
-
-                Inicio= L.marker([parseFloat(Latitud),parseFloat(Longitud)]).addTo(map); 
-	              });
 
                 
         setInterval(
@@ -136,15 +121,11 @@
                   $('#Latitud').text(Latitud);
                   $('#Longitud').text(Longitud);
 
-                  
-                  map.panTo(new L.LatLng(parseFloat($('#Latitud').text()),parseFloat($('#Longitud').text())),18);
-                  polyline.addLatLng([parseFloat($('#Latitud').text()),parseFloat($('#Longitud').text())]); 
-                  Marcador.setLatLng([parseFloat($('#Latitud').text()),parseFloat($('#Longitud').text())]); 
-
-
+                  map.panTo(new L.LatLng(parseFloat($('#Latitud').text()),parseFloat($('#Longitud').text())));
+                  L.marker([parseFloat($('#Latitud').text()),parseFloat($('#Longitud').text())],{draggable: false}).addTo(map)
                 });
 
-            },1000
+            },10000
         );
 
     });
@@ -156,5 +137,4 @@
 
 
   
-</script>
-
+</script
