@@ -79,6 +79,20 @@
                 OpenStreetMap_Mapnik.addTo(map);
 		polyline = L.polyline([]).addTo(map);
 		Marcador= L.marker([0,0]).addTo(map);		
+
+	  $('#coordenadas').load("./Latitud.php", function(){
+
+                var coordenadas = ($("#coordenadas").text());
+
+                var coordenadas_1 = coordenadas.split("_");
+
+                var Latitud = ""+coordenadas_1[1]+"";
+
+                var Longitud = ""+coordenadas_1[0]+"";
+
+                Inicio= L.marker([parseFloat(Latitud),parseFloat(Longitud)]).addTo(map); 
+	              });
+
                 
         setInterval(
 
