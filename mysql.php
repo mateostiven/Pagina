@@ -10,7 +10,7 @@ class MySQL{
 
     public function conBDOB(){
 	include '../../Config.php';
-        $this->oConBD=new mysqli($Host,$Usuario,$Clave,'Taxi');
+        $this->oConBD=new mysqli($Host,$Usuario,$Clave,'taxi');
         if ($this-> oConBD -> connect_error){
             echo "Error al conectarse".$this->oConBD->connect_error."\n";
             return false;
