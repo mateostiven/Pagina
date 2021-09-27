@@ -92,7 +92,7 @@
                 <option>Historico</option>
                 <option>Tiempo real</option>
 
-                <input id="button" type="submit" value="Enviar" class="btn btn-success" name="btn1">
+                <input id="button" type="submit" name="button" onclick="myFunction();" value="enter"/>
           </div>
 
             <div id='map'></div>
@@ -125,10 +125,9 @@
       Inicio= L.marker([parseFloat(Latitud),parseFloat(Longitud)]).addTo(map); 
 	  });
 
-    if(document.getElementById('button').clicked == true)
-    {
-      alert("button was clicked");
-    }
+    function myFunction(){
+    alert("You button was pressed");
+  }; 
 
                 
         setInterval(
