@@ -93,11 +93,19 @@
                 <option>Tiempo real</option>
 
                 <input id="button" type="submit" name="button" onclick="myFunction();" value="enter"/>
+
+              </form>
           </div>
 
             <div id='map'></div>
     </body>
 </html>
+
+<script>
+  function myFunction(){
+      alert("You button was pressed");
+  };   
+  </script>
 
 <script type="text/javascript">
 
@@ -125,11 +133,7 @@
       Inicio= L.marker([parseFloat(Latitud),parseFloat(Longitud)]).addTo(map); 
 	  });
 
-    function myFunction(){
-    console.log("se preciono el bt")
-  }; 
 
-                
         setInterval(
 
             function(){
