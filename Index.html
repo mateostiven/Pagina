@@ -84,6 +84,9 @@
                 <label for="horaFinal2">Inserte la hora final </label>
                 <input type="text" name="horaFin" class="form-control" id="horaFinal2">
 
+                <label for="fechaInicio">Inserte la fecha de inicio </label>
+                <input type="text" name="fechaIni" class="form-control" id="fechaInicio">
+
                 <label for="operador">Seleccione Historico/Tiempo real</label>
                 <select class="form-control" name="operador">
                 <option>Historico</option>
@@ -103,7 +106,8 @@
       
       var horaIniciox = document.getElementById("horaInicio1").value;
       var horaFinx = document.getElementById("horaFinal2").value;
-      alert("hora inicio es:" + horaIniciox + "hora final es:" + horaFinx);
+      var fechaIniciox = document.getElementById("fechaInicio").value;
+      alert("hora inicio es:" + horaIniciox + "hora final es:" + horaFinx + "fecha inicio es:" + fechaIniciox);
   };   
   </script>
 
