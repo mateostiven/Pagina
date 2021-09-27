@@ -92,7 +92,7 @@
                 <option>Historico</option>
                 <option>Tiempo real</option>
 
-                <input type="submit" value="Enviar" class="btn btn-success" name="btn1">
+                <input id="button" type="submit" value="Enviar" class="btn btn-success" name="btn1">
           </div>
 
             <div id='map'></div>
@@ -103,27 +103,32 @@
 
     $(document).ready(function(){
 
-                var map = L.map('map').setView([0,0],20);
-                var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                  maxZoom: 19,
-                  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                });
-                OpenStreetMap_Mapnik.addTo(map);
-		polyline = L.polyline([]).addTo(map);
-		Marcador= L.marker([0,0]).addTo(map);		
+      var map = L.map('map').setView([0,0],20);
+      var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      });
+      OpenStreetMap_Mapnik.addTo(map);
+		  polyline = L.polyline([]).addTo(map);
+		  Marcador= L.marker([0,0]).addTo(map);		
 
 	  $('#coordenadas').load("./Latitud.php", function(){
 
-                var coordenadas = ($("#coordenadas").text());
+      var coordenadas = ($("#coordenadas").text());
 
-                var coordenadas_1 = coordenadas.split("_");
+      var coordenadas_1 = coordenadas.split("_");
 
-                var Latitud = ""+coordenadas_1[1]+"";
+      var Latitud = ""+coordenadas_1[1]+"";
 
-                var Longitud = ""+coordenadas_1[0]+"";
+      var Longitud = ""+coordenadas_1[0]+"";
 
-                Inicio= L.marker([parseFloat(Latitud),parseFloat(Longitud)]).addTo(map); 
-	              });
+      Inicio= L.marker([parseFloat(Latitud),parseFloat(Longitud)]).addTo(map); 
+	  });
+
+    if(document.getElementById('button').clicked == true)
+    {
+      alert("button was clicked");
+    }
 
                 
         setInterval(
