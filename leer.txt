@@ -1,1 +1,11 @@
-este es un archivo de prueba
+este es un archivo de prueba ! 
+
+si configuramos claves ssh entre github y nuestra maquina, podemos hacer commits y push a github sin autenticacion
+por contraseña. 
+
+$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+$ eval $(ssh-agent -s)
+
+$ ssh-add ~/.ssh/id_rsa
+
