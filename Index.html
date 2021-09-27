@@ -76,23 +76,18 @@
             <br>
 
             <div align ="center">
-            <label for="start">Seleccione la fecha:</label>
+              <form method="POST" action="Index.html" class="form-inline">
 
-            <input type="date" id="start" name="trip-start"
-            value="2021-09-01"
-            min="2021-01-01" max="2022-12-31">
+                <label for="facha1">Inserte la fecha: </label>
+                <input type="text" name="fech1" class="form-control" id="facha1">
+            
+                <label for="horaInicio1">Inserte la hora de inicio </label>
+                <input type="text" name="horaIni" class="form-control" id="horaInicio1">
 
-            <label for="appt">Seleccione la hora de inicio:</label>
+                <label for="horaFinal2">Inserte la hora final </label>
+                <input type="text" name="horaFin" class="form-control" id="horaFinal2">
 
-            <input type="time" id="appt" name="appt"
-            min="01:00" max="24:00" required>
-
-            <label for="appt">Seleccione la hora de final:</label>
-
-            <input type="time" id="appt" name="appt"
-            min="01:00" max="24:00" required>
-
-            <input type="submit" value="Enviar datos">
+                <input type="submit" value="Enviar" class="btn btn-success" name="btn1">
           </div>
 
             <div id='map'></div>
@@ -181,10 +176,4 @@
 
 </script>
 
-<script>
-
-
-
-  
-</script>
 
