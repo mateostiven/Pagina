@@ -109,7 +109,7 @@
         $num3 = $_POST['fechaIni'];
         $operador = $_POST['operador'];
 
-        echo $num1
+        echo $num1;
 
       }
     ?>
