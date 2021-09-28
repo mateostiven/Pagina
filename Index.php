@@ -108,7 +108,7 @@
                 OpenStreetMap_Mapnik.addTo(map);
                 polyline = L.polyline([]).addTo(map); //
                 var greenIcon = new L.Icon({
-                    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gre>,
+                    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gre>',
                     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
                     iconSize: [25, 41],
                     iconAnchor: [12, 41],
