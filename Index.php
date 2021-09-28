@@ -98,10 +98,9 @@
           </div>
 
             <div id='map'></div>
-    </body>
-</html>
 
-<?php
+<center><h2><!--Todo lo que imprima PHP va a estar Centrado y con H2-->
+  <?php
       if(isset($_POST['btn1']))
       {
         $num1 = $_POST['horaIni'];
@@ -109,11 +108,15 @@
         $num3 = $_POST['fechaIni'];
         $operador = $_POST['operador'];
 
-        echo "hola";
+        echo $num1;
 
       }
-    ?>
-
+  ?>
+</h2></center>
+  
+    </body>
+    
+</html>
 
 <script type="text/javascript">
 
