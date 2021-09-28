@@ -30,8 +30,8 @@
     </head>
     <body>
         <center>
-        <div> Hora de inicio: <?php echo $_POST['Fecha']." ".$_POST['MinIn'].":00" ?> </div>
-        <div> Hora de fin: <?php echo $_POST['Fecha']." ".$_POST['MinFn'].":00"  ?> </div>  
+        <h2> Hora de inicio: <?php echo $_POST['Fecha']." ".$_POST['MinIn'].":00" ?> </h2>
+        <h2> Hora de fin: <?php echo $_POST['Fecha']." ".$_POST['MinFn'].":00"  ?> </h2>  
         <br> 
         <div id='map'></div>
         </center>
@@ -65,8 +65,12 @@
         <?php
             include '../../Config.php';
             $conexion=new mysqli($Host,$Usuario,$Clave,'taxi');
-            $FIn=strval(strtotime ($_POST['Fecha'].$_POST['MinIn'])*1000);
-            $FFn=strval(strtotime ($_POST['Fecha'].$_POST['MinFn'])*1000);            
+            $FIn=DateTime::createFromFormat('Y-m-d H:i:s', $_POST['Fecha']." ".$_POST['MinIn'].':00', new DateTimeZone('GMT-5'))->getTimestamp();
+            $FIn=strval($FIn*1000);
+            $FFn=DateTime::createFromFormat('Y-m-d H:i:s', $_POST['Fecha']." ".$_POST['MinFn'].':00', new DateTimeZone('GMT-5'))->getTimestamp();
+            $FFn=strval($FFn*1000);
+
+            date_default_timezone_set("America/Bogota");
             
             $sql = "SELECT * FROM datos WHERE Fecha BETWEEN $FIn AND $FFn ORDER BY Fecha DESC";
             $result = $conexion->query($sql);
@@ -77,10 +81,13 @@
                     $Fecha= date( 'Y-m-d H:i:s', doubleval($row['Fecha'])/1000);
                     $Marcadores[]=array ($row['Longitud'],$row['Latitud'],$Fecha);
                 };  
+            }else{
+                $Poly[]=[];
+                $Marcadores[]=[];
             } 
             
         ?>
-        var polylineH = L.polyline(<?php echo json_encode($Poly) ?>).addTo(map);
+        var polylineH = L.polyline(<?php echo json_encode($Poly)?>).addTo(map);
 
         var Marcadores = <?php echo json_encode($Marcadores)?>;
 
@@ -103,12 +110,16 @@
 
         marker= new L.marker([parseFloat(Marcadores[0][0]),parseFloat(Marcadores[0][1])],{icon: greenIcon}).bindPopup(Marcadores[0][2]).addTo(map)
         for ($i=1; $i < Marcadores.length-2 ; $i++) {
-            marker= new L.marker([parseFloat(Marcadores[$i][0]),parseFloat(Marcadores[$i][1])],{icon: RedIcon}).bindPopup(Marcadores[$i][2]).addTo(map)
+            marker= new L.marker([parseFloat(Marcadores[$i][0]),parseFloat(Marcadores[$i][1])]).bindPopup(Marcadores[$i][2]).addTo(map)
         };
         marker= new L.marker([parseFloat(Marcadores[Marcadores.length-1][0]),parseFloat(Marcadores[Marcadores.length-1][1])]).bindPopup(Marcadores[Marcadores.length-1][2]).addTo(map)
         PromedioLat= (parseFloat(Marcadores[0][1])+parseFloat(Marcadores[Marcadores.length-1][1]))/2;
         PromedioLog= (parseFloat(Marcadores[0][0])+parseFloat(Marcadores[Marcadores.length-1][0]))/2;
         setTimeout(() => { map.panTo([PromedioLog,PromedioLat]); }, 500);
+
+       
+
+
 
 });
 </script>
