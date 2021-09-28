@@ -36,7 +36,7 @@
     <center><h2><!--Todo lo que imprima PHP va a estar Centrado y con H2-->
   <?php
       
-        $num1 = $_POST['horaIni'];
+        $num1 = $_POST['horaInicio1'];
         $num2 = $_POST['horaFin'];
         $num3 = $_POST['fechaIni'];
         $operador = $_POST['operador'];
