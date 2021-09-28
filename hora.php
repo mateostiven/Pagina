@@ -27,7 +27,7 @@ $Diferencia= $inicio -> diff($fin);
   </head>
   <body>
     <center>
-    <form class="Horas" action="Calcularhora.php" method="post">
+    <form class="Horas" action="hora.php" method="post">
       <h1>Calcular Diferencia de Horas en PHP</h1>
       Asigne la hora de entrada <input type="time" name="hora1"><br><br>
       Asigne la hora de salida  <input type="time" name="hora2"><br><br>
