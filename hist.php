@@ -30,6 +30,9 @@
     </head>
     <body>
         <center>
+        <div> Hora de inicio: <?php echo $_POST['Fecha']." ".$_POST['MinIn'].":00" ?> </div>
+        <div> Hora de fin: <?php echo $_POST['Fecha']." ".$_POST['MinFn'].":00"  ?> </div>  
+        <br> 
         <div id='map'></div>
         </center>
 
@@ -58,7 +61,7 @@
         });
         OpenStreetMap_Mapnik.addTo(map);
         
-        
+
         <?php
             include '../../Config.php';
             $conexion=new mysqli($Host,$Usuario,$Clave,'taxi');
@@ -77,24 +80,35 @@
             } 
             
         ?>
-
-
-
-
         var polylineH = L.polyline(<?php echo json_encode($Poly) ?>).addTo(map);
 
         var Marcadores = <?php echo json_encode($Marcadores)?>;
 
-        for ($i=0; $i < Marcadores.length ; $i++) { 
-            marker= new L.marker([parseFloat(Marcadores[$i][0]),parseFloat(Marcadores[$i][1])]).bindPopup(Marcadores[$i][2]).addTo(map)
-        }; 
+        var greenIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+        });
+
+        var RedIcon = new L.Icon({
+        iconUrl: 'blackpoint.png',
+
+        iconSize: [10,10],
+        iconAnchor: [5,5],
+        popupAnchor: [0,0]
+        });
+
+        marker= new L.marker([parseFloat(Marcadores[0][0]),parseFloat(Marcadores[0][1])],{icon: greenIcon}).bindPopup(Marcadores[0][2]).addTo(map)
+        for ($i=1; $i < Marcadores.length-2 ; $i++) {
+            marker= new L.marker([parseFloat(Marcadores[$i][0]),parseFloat(Marcadores[$i][1])],{icon: RedIcon}).bindPopup(Marcadores[$i][2]).addTo(map)
+        };
+        marker= new L.marker([parseFloat(Marcadores[Marcadores.length-1][0]),parseFloat(Marcadores[Marcadores.length-1][1])]).bindPopup(Marcadores[Marcadores.length-1][2]).addTo(map)
         PromedioLat= (parseFloat(Marcadores[0][1])+parseFloat(Marcadores[Marcadores.length-1][1]))/2;
         PromedioLog= (parseFloat(Marcadores[0][0])+parseFloat(Marcadores[Marcadores.length-1][0]))/2;
         setTimeout(() => { map.panTo([PromedioLog,PromedioLat]); }, 500);
-            
-       
-
-
 
 });
 </script>
