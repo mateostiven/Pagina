@@ -36,7 +36,7 @@
         <div id='map'></div>
         </center>
 
-        <form method="POST" action="hist.php">
+        <form method="POST" action="Index.php">
         <br> 
         <center>
           <input type="submit" values="Regresar" class="btn btn-sucess" name="btn1">    

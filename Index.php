@@ -65,7 +65,7 @@
             <br>
             
       
-      <form method="POST" action="Index.php">
+      <form method="POST" action="hist.php">
       <center>
       <label for="start">Seleccione la fecha:</label>
 
