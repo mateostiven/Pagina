@@ -32,7 +32,7 @@
     <body> <?php
     echo "hola"
     ?>  
-    
+
         <h1 align ="center">Taxi GPS ...</h1>
         <style type="text/css">
             .tg  {border-collapse:collapse;border-spacing:0;}
@@ -104,8 +104,7 @@
 
 <center><h2><!--Todo lo que imprima PHP va a estar Centrado y con H2-->
   <?php
-      if(isset($_POST['btn1']))
-      {
+      
         $num1 = $_POST['horaIni'];
         $num2 = $_POST['horaFin'];
         $num3 = $_POST['fechaIni'];
@@ -113,7 +112,7 @@
 
         echo $num1;
 
-      }
+      
   ?>
 </h2></center>
 
