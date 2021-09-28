@@ -102,6 +102,9 @@
 </html>
 
 <?php
+
+echo "hola mundo";
+
       if(isset($_POST['btn1']))
       {
         $num1 = $_POST['horaIni'];
@@ -109,7 +112,7 @@
         $num3 = $_POST['fechaIni'];
         $operador = $_POST['operador'];
 
-        echo "hola mundo";
+        
 
       }
     ?>
