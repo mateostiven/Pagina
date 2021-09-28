@@ -76,7 +76,7 @@
             <br>
 
             <div align ="center">
-              <form method="POST" action="Index.html" class="form-inline"></form>
+              <form method="POST" action="Index.php" class="form-inline"></form>
             
                 <label for="horaInicio1">Inserte la hora de inicio </label>
                 <input type="text" name="horaIni" class="form-control" id="horaInicio1">
@@ -102,9 +102,6 @@
 </html>
 
 <?php
-
-echo "hola mundo";
-
       if(isset($_POST['btn1']))
       {
         $num1 = $_POST['horaIni'];
@@ -112,7 +109,7 @@ echo "hola mundo";
         $num3 = $_POST['fechaIni'];
         $operador = $_POST['operador'];
 
-        
+        echo "hola";
 
       }
     ?>
