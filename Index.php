@@ -57,7 +57,8 @@
     
 <center><h2><!--Todo lo que imprima PHP va a estar Centrado y con H2-->
   <?php
-      
+      if(isset($_POST['btn1']))
+      {
         $num1 = $_POST['horaInicio1'];
         $num2 = $_POST['horaFin'];
         $num3 = $_POST['fechaIni'];
@@ -68,7 +69,7 @@
         echo $num3;
         echo "hola2";
 
-      
+      }
   ?>
 </h2></center>
 
