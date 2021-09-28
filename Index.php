@@ -32,8 +32,30 @@
     <body> <?php
     echo "hola"
     ?>
+
+<div align ="center">
+              <form method="POST" action="Index.php" class="form-inline"></form>
+            
+                <label for="horaInicio1">Inserte la hora de inicio </label>
+                <input type="text" name="horaIni" class="form-control" id="horaInicio1">
+
+                <label for="horaFinal2">Inserte la hora final </label>
+                <input type="text" name="horaFin" class="form-control" id="horaFinal2">
+
+                <label for="fechaInicio">Inserte la fecha de inicio </label>
+                <input type="text" name="fechaIni" class="form-control" id="fechaInicio">
+
+                <label for="operador">Seleccione Historico/Tiempo real</label>
+                <select class="form-control" name="operador">
+                <option>Historico</option>
+                <option>Tiempo real</option>
+
+                <input type="submit" value="Enviar" class="btn btn-success" name="btn1">
+
+              </form>
+          </div>
     
-    <center><h2><!--Todo lo que imprima PHP va a estar Centrado y con H2-->
+<center><h2><!--Todo lo que imprima PHP va a estar Centrado y con H2-->
   <?php
       
         $num1 = $_POST['horaInicio1'];
@@ -42,7 +64,9 @@
         $operador = $_POST['operador'];
 
         echo $num1;
-        echo "hola2"
+        echo $num2;
+        echo $num3;
+        echo "hola2";
 
       
   ?>
@@ -92,28 +116,6 @@
             </tbody>
             </table>
             <br>
-
-            <div align ="center">
-              <form method="POST" action="Index.php" class="form-inline"></form>
-            
-                <label for="horaInicio1">Inserte la hora de inicio </label>
-                <input type="text" name="horaIni" class="form-control" id="horaInicio1">
-
-                <label for="horaFinal2">Inserte la hora final </label>
-                <input type="text" name="horaFin" class="form-control" id="horaFinal2">
-
-                <label for="fechaInicio">Inserte la fecha de inicio </label>
-                <input type="text" name="fechaIni" class="form-control" id="fechaInicio">
-
-                <label for="operador">Seleccione Historico/Tiempo real</label>
-                <select class="form-control" name="operador">
-                <option>Historico</option>
-                <option>Tiempo real</option>
-
-                <input type="submit" value="Enviar" class="btn btn-success" name="btn1">
-
-              </form>
-          </div>
 
             <div id='map'></div>
 
