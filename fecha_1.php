@@ -29,7 +29,7 @@ $Diferencia = $fechainicial->diff($fechafin);
 
 <body>
     <center>
-        <form class="Horas" action="CalcularFecha.php" method="post">
+        <form class="Horas" action="fecha_1.php" method="post">
             <h1>Calcular Diferencia de fechas en PHP</h1>
             Asigne la primera Fecha <input type="date" name="fecha1"><br><br>
             Asigne la segunda Fecha <input type="date" name="fecha2"><br><br>
