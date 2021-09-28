@@ -29,7 +29,10 @@
 
     </head>
 
-    <body>   
+    <body> <?php
+    echo "hola"
+    ?>  
+    
         <h1 align ="center">Taxi GPS ...</h1>
         <style type="text/css">
             .tg  {border-collapse:collapse;border-spacing:0;}
@@ -113,7 +116,7 @@
       }
   ?>
 </h2></center>
-  
+
     </body>
     
 </html>
