@@ -92,7 +92,7 @@
                 <option>Historico</option>
                 <option>Tiempo real</option>
 
-                <input id="button" type="submit" name="button" onclick="myFunction();" value="enter"/>
+                <input type="submit" value="Enviar" class="btn btn-success" name="btn1">
 
               </form>
           </div>
@@ -101,22 +101,19 @@
     </body>
 </html>
 
-<script>
-  function myFunction(){
-      
-      var horaIniciox = document.getElementById("horaInicio1").value;
-      var horaFinx = document.getElementById("horaFinal2").value;
-      var fechaIniciox = document.getElementById("fechaInicio").value;
-      var date1 = fechaIniciox + " " + horaIniciox;
-      var date2 = fechaIniciox + " " + horaFinx;
-      alert("date1 es: " + date1 + " " + "date2 es: " + date2);
+<?php
+      if(isset($_POST['btn1']))
+      {
+        $num1 = $_POST['horaIni'];
+        $num2 = $_POST['horaFin'];
+        $num3 = $_POST['fechaIni'];
+        $operador = $_POST['operador'];
 
-      
-      var time1 = new Time(date1)
-      var t
-      alert("time1 es: " + time1 );
-  };   
-  </script>
+        echo $num1
+
+      }
+    ?>
+
 
 <script type="text/javascript">
 
