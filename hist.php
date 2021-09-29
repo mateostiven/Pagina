@@ -110,7 +110,7 @@
 
         marker= new L.marker([parseFloat(Marcadores[0][0]),parseFloat(Marcadores[0][1])],{icon: greenIcon}).bindPopup(Marcadores[0][2]).addTo(map)
         for ($i=1; $i < Marcadores.length-2 ; $i++) {
-            marker= new L.marker([parseFloat(Marcadores[$i][0]),parseFloat(Marcadores[$i][1])]).bindPopup(Marcadores[$i][2]).addTo(map)
+            marker= new L.marker([parseFloat(Marcadores[$i][0]),parseFloat(Marcadores[$i][1])],{icon: RedIcon}).bindPopup(Marcadores[$i][2]).addTo(map)
         };
         marker= new L.marker([parseFloat(Marcadores[Marcadores.length-1][0]),parseFloat(Marcadores[Marcadores.length-1][1])]).bindPopup(Marcadores[Marcadores.length-1][2]).addTo(map)
         PromedioLat= (parseFloat(Marcadores[0][1])+parseFloat(Marcadores[Marcadores.length-1][1]))/2;
