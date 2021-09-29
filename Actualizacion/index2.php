@@ -1,4 +1,5 @@
 <?php
-$out shell_exec("/usr/bin/git pull > 2&1");
+$out = shell_exec("cd /var/www/html/Pagina && sudo git reset --hard && sudo git pull");
+system('hola')
 var_dump($out);
-
+?>
