@@ -39,7 +39,7 @@
         <div id='map'></div>
         </center>
 
-        <form method="POST" action="Index.php">
+        <form method="POST" action="index.php">
         <br> 
         <center>
           <input type="submit" values="Regresar" class="btn btn-sucess" name="btn1">    
