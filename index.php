@@ -67,21 +67,18 @@
       
       <form method="POST" action="hist.php">
       <center>
-      <label for="start">Seleccione la fecha:</label>
-
-      <input type="date" id="Fecha" name="Fecha"
-      value="2021-09-01"
+      <label for="start">Desde:</label>
+      <input type="date" id="FechaIn" name="FechaIn" value="2021-09-01" 
       min="2021-01-01" max="2022-12-31">
 
-      <label for="appt">Seleccione la hora de inicio:</label>
-
       <input type="time" id="MinIn" name="MinIn"
-      min="01:00" max="24:00" required>
+      min="00:00" max="24:00" required>
 
-      <label for="appt">Seleccione la hora de final:</label>
-
+      <label for="appt">Hasta:</label>
+      <input type="date" id="FechaFn" name="FechaFn" value="2021-09-01" 
+      min="2021-01-01" max="2022-12-31">
       <input type="time" id="MinFn" name="MinFn"
-      min="01:00" max="24:00" required>
+      min="00:00" max="24:00" required>
         
       <p><input type="submit" values="Enviar" name="btn1"></p>  
           
@@ -92,6 +89,23 @@
 
       <div id='map'></div>
 
+
+      <script> 
+        const FI = document.getElementById('FechaIn');
+        FI.addEventListener('focusout', (event) => {
+          document.getElementById('FechaFn').min=document.getElementById('FechaIn').value;
+
+          if (document.getElementById('FechaFn').min>document.getElementById('FechaFn').value){
+            document.getElementById('FechaFn').value=document.getElementById('FechaFn').min;
+          };
+        });
+        const HF = document.getElementById('MinFn');
+        HF.addEventListener('focusin', (event) => {
+          if (document.getElementById('FechaFn').value=document.getElementById('FechaIn').value) {
+            document.getElementById('MinFn').min=document.getElementById('MinIn').value;
+          }
+        });
+      </script>
 
     </body>
 </html>
