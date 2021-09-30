@@ -30,9 +30,12 @@
     </head>
     <body>
         <center>
-        <h2> Hora de inicio: <?php echo $_POST['Fecha']." ".$_POST['MinIn'].":00" ?> </h2>
-        <h2> Hora de fin: <?php echo $_POST['Fecha']." ".$_POST['MinFn'].":00"  ?> </h2>  
-        <br> 
+        <h2> Hora de inicio: <?php echo $_POST['FechaIn']." ".$_POST['MinIn'].":00" ?> </h2>
+        <h2> Hora de fin: <?php echo $_POST['FechaFn']." ".$_POST['MinFn'].":00"  ?> </h2>  
+        <p> <button type="button" id='Boton'>Centrar</button></p>
+        
+
+
         <div id='map'></div>
         </center>
 
@@ -46,7 +49,6 @@
     </body>   
 
 </html>
-
 
 
 <script type="text/javascript">
@@ -65,9 +67,9 @@
         <?php
             include '../../Config.php';
             $conexion=new mysqli($Host,$Usuario,$Clave,'taxi');
-            $FIn=DateTime::createFromFormat('Y-m-d H:i:s', $_POST['Fecha']." ".$_POST['MinIn'].':00', new DateTimeZone('GMT-5'))->getTimestamp();
+            $FIn=DateTime::createFromFormat('Y-m-d H:i:s', $_POST['FechaIn']." ".$_POST['MinIn'].':00', new DateTimeZone('GMT-5'))->getTimestamp();
             $FIn=strval($FIn*1000);
-            $FFn=DateTime::createFromFormat('Y-m-d H:i:s', $_POST['Fecha']." ".$_POST['MinFn'].':00', new DateTimeZone('GMT-5'))->getTimestamp();
+            $FFn=DateTime::createFromFormat('Y-m-d H:i:s', $_POST['FechaFn']." ".$_POST['MinFn'].':00', new DateTimeZone('GMT-5'))->getTimestamp();
             $FFn=strval($FFn*1000);
 
             date_default_timezone_set("America/Bogota");
@@ -113,13 +115,14 @@
             marker= new L.marker([parseFloat(Marcadores[$i][0]),parseFloat(Marcadores[$i][1])],{icon: RedIcon}).bindPopup(Marcadores[$i][2]).addTo(map)
         };
         marker= new L.marker([parseFloat(Marcadores[Marcadores.length-1][0]),parseFloat(Marcadores[Marcadores.length-1][1])]).bindPopup(Marcadores[Marcadores.length-1][2]).addTo(map)
-        PromedioLat= (parseFloat(Marcadores[0][1])+parseFloat(Marcadores[Marcadores.length-1][1]))/2;
-        PromedioLog= (parseFloat(Marcadores[0][0])+parseFloat(Marcadores[Marcadores.length-1][0]))/2;
-        setTimeout(() => { map.panTo([PromedioLog,PromedioLat]); }, 500);
-
        
-
-
-
+        map.fitBounds(polylineH.getBounds());
+        
+        const boton = document.getElementById('Boton');
+        boton.addEventListener('click', (event) => {
+            map.fitBounds(polylineH.getBounds());
+ 
+        });
+        
 });
 </script>
