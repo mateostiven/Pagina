@@ -68,16 +68,17 @@
       <form method="POST" action="hist.php">
       <center>
       <label for="start">Desde:</label>
-      <input type="date" id="FechaIn" name="FechaIn" value="2021-09-01" 
+      <input type="date" id="FechaIn" name="FechaIn" value="2021-10-01" 
       min="2021-01-01" max="2022-12-31">
 
-      <input type="time" id="MinIn" name="MinIn"
+      <input type="time" id="MinIn" name="MinIn" value="00:00"
       min="00:00" max="24:00" required>
 
       <label for="appt">Hasta:</label>
-      <input type="date" id="FechaFn" name="FechaFn" value="2021-09-01" 
+      <input type="date" id="FechaFn" name="FechaFn" value="2021-10-01" 
       min="2021-01-01" max="2022-12-31">
-      <input type="time" id="MinFn" name="MinFn"
+
+      <input type="time" id="MinFn" name="MinFn" value="24:00"
       min="00:00" max="24:00" required>
         
       <p><input type="submit" values="Enviar" name="btn1"></p>  
