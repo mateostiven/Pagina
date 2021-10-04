@@ -215,7 +215,7 @@ a:hover, a:focus {
  margin-left: 20px;
 }
 .container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
-	width: auto;
+	width: 940px;
 }
 .span12 {
 	width: 940px;
@@ -2838,7 +2838,7 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 	min-height: 40px;
 	padding-left: 20px;
 	padding-right: 20px;
-	background-color: #f1b100;
+	background-color: #f04949;
  *zoom: 1;
 }
 .navbar-inner:before, .navbar-inner:after {
