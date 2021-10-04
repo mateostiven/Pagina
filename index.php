@@ -29,7 +29,7 @@
     <h1>Taxi Service</h1>
     <h3>Sistema De Telemetría De Un Vehículo</h3>
     <p> Con este proyecto se busca que el estudiante relacione los conocimientos de circuitos electrónicos analógicos y digitales con los sistemas de telecomunicaciones, y así, desarrolle una aplicación de telemetría teniendo en cuenta las especificaciones de diseño, y las restricciones de alcance, costo y tiempo; propias de la gestión de proyectos. </p>
-    <a href="https://drive.google.com/file/d/1vjAHzRlFgjOrzvUlYwtxIpZWzTA-WBJg/view?usp=drivesdk"  target="_blank" class="hire-me"><i class="icon-download"></i> Download app movil </a> </div>
+    <a href="https://play.google.com/store/apps/details?id=com.autocab.taxibooker.moviltaxi.cartagena" target="_blank" class="hire-me"><i class="icon-download"></i> Download app movil </a> </div>
 </div>
 <div class="row social">
   <ul class="social-icons">
