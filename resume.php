@@ -15,7 +15,7 @@
     <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="index.php"><img src="img/user.jpg" alt=""></a>
       <ul class="nav nav-collapse pull-right">
         <li><a href="index.php" > Home</a></li>
-        <li><a href="skills.php" >Real Time</a></li>
+        <li><a href="realTime.php" >Real Time</a></li>
         <li><a href="work.php"> Historic</a></li>
         <li><a href="resume.php" class="active"> About Us</a></li>
       </ul>

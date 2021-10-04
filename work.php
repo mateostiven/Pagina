@@ -33,7 +33,7 @@
       <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="index.php"><img src="img/user.jpg" alt=""></a>
         <ul class="nav nav-collapse pull-right">
           <li><a href="index.php"> Home</a></li>
-          <li><a href="skills.php">Real Time</a></li>
+          <li><a href="realTime.php">Real Time</a></li>
           <li><a href="work.php" class="active"> Historic</a></li>
           <li><a href="resume.php"> About Us</a></li>
         </ul>
@@ -54,7 +54,7 @@
       <div id='map'></div>
     </div>
     <div class="tail">
-      <form method="POST" action="skills.php">
+      <form method="POST" action="realTime.php">
         <br>
         <center>
           <input type="submit" values="Regresar" class="btn btn-sucess" name="btn1">
