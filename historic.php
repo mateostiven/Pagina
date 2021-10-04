@@ -45,8 +45,22 @@
     <h2>Historical Travels</h2>
     <div class="head">
       <center>
-        <h4> Hora de inicio: <?php echo $_POST['FechaIn'] . " " . $_POST['MinIn'] . ":00" ?> </h4>
-        <h4> Hora de fin: <?php echo $_POST['FechaFn'] . " " . $_POST['MinFn'] . ":00"  ?> </h4>
+        <form method="POST" action="historic.php">
+          <center>
+            <label for="start">Desde:</label>
+            <input type="date" id="FechaIn" name="FechaIn" value="2021-09-23" min="2021-01-01" max="2022-12-31">
+
+            <input type="time" id="MinIn" name="MinIn" value="02:30" min="00:00" max="24:00" required>
+
+            <label for="appt">Hasta:</label>
+            <input type="date" id="FechaFn" name="FechaFn" value="2021-09-23" min="2021-01-01" max="2022-12-31">
+
+            <input type="time" id="MinFn" name="MinFn" value="23:30" min="00:00" max="24:00" required>
+
+            <p><input type="submit" values="Enviar" name="btn1"></p>
+
+          </center>
+        </form>
         <p> <button type="button" id='Boton'>Centrar</button></p>
       </center>
     </div>
@@ -57,7 +71,7 @@
       <form method="POST" action="realTime.php">
         <center>
           <br>
-          <input type="submit" value="Regresar"  name="btnback">
+          <input type="submit" value="Regresar" name="btnback">
         </center>
       </form>
     </div>
