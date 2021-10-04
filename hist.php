@@ -93,29 +93,62 @@
 
         var Marcadores = <?php echo json_encode($Marcadores)?>;
 
-        var greenIcon = new L.Icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+        var fin = new L.Icon({
+        iconUrl: 'finalpoint.png',
         shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
+        iconSize: [40, 40],
+        iconAnchor: [12, 30],
         popupAnchor: [1, -34],
         shadowSize: [41, 41]
         });
 
-        var RedIcon = new L.Icon({
-        iconUrl: 'blackpoint.png',
+        var inicio = new L.Icon({
+        iconUrl: 'startpoint.png',
 
-        iconSize: [10,10],
-        iconAnchor: [5,5],
+        iconSize: [40,40],
+        iconAnchor: [10,20],
         popupAnchor: [0,0]
         });
 
-        marker= new L.marker([parseFloat(Marcadores[0][0]),parseFloat(Marcadores[0][1])],{icon: greenIcon}).bindPopup(Marcadores[0][2]).addTo(map)
-        for ($i=1; $i < Marcadores.length-2 ; $i++) {
-            marker= new L.marker([parseFloat(Marcadores[$i][0]),parseFloat(Marcadores[$i][1])],{icon: RedIcon}).bindPopup(Marcadores[$i][2]).addTo(map)
-        };
-        marker= new L.marker([parseFloat(Marcadores[Marcadores.length-1][0]),parseFloat(Marcadores[Marcadores.length-1][1])]).bindPopup(Marcadores[Marcadores.length-1][2]).addTo(map)
+        marker= new L.marker([parseFloat(Marcadores[0][0]),parseFloat(Marcadores[0][1])],{icon: fin}).bindPopup(Marcadores[0][2]).addTo(map)
        
+        marker= new L.marker([parseFloat(Marcadores[Marcadores.length-1][0]),parseFloat(Marcadores[Marcadores.length-1][1])],{icon: inicio}).bindPopup(Marcadores[Marcadores.length-1][2]).addTo(map)
+       
+
+   var popup = L.popup();
+
+        function onMapClick(e) {
+            Mensaje=new String ("");
+            Fi=0;
+            latb=(Math.round(e.latlng.lat*1000.0)/1000.0);
+            lngb=(Math.round(e.latlng.lng*1000.0)/1000.0);;
+
+           
+
+            for ($i=0; $i < Marcadores.length-1 ; $i++) {
+                latM=parseFloat(Marcadores[$i][0]);
+                lngM=parseFloat(Marcadores[$i][1]);
+
+                if ((lngb-0.001)<lngM && lngM<(lngb+0.001) && (latb-0.001)<latM && latM<(latb+0.001)){
+                    
+                    if ((Marcadores[$i][2].slice(0, -3) != Marcadores[Fi][2].slice(0, -3))||(Mensaje=="")){
+                        Mensaje=Mensaje+"<br> "+Marcadores[$i][2];
+
+                    }
+
+                    Fi=$i;
+                };
+            };
+            
+            popup.setLatLng(e.latlng).setContent("Pasó a las: "+Mensaje).openOn(map);
+        }
+
+        map.on('click', onMapClick); 
+
+
+
+
+
         map.fitBounds(polylineH.getBounds());
         
         const boton = document.getElementById('Boton');

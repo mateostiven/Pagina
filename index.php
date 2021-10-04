@@ -122,16 +122,27 @@
                 });
                 OpenStreetMap_Mapnik.addTo(map);
                 polyline = L.polyline([]).addTo(map); //
-                var greenIcon = new L.Icon({
-                    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+
+                var inicio = new L.Icon({
+                    iconUrl: 'startpoint.png',
                     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                    iconSize: [25, 41],
-                    iconAnchor: [12, 41],
-                    popupAnchor: [1, -34],
+                    iconSize: [40, 40],
+                    iconAnchor: [10, 20],
+                    popupAnchor: [0, 0],
                     shadowSize: [41, 41]
                     });
+		
+		        var fin = new L.Icon({
+        iconUrl: 'finalpoint.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [40, 40],
+        iconAnchor: [12, 30],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+        });		
 
-                Marcador= L.marker([0,0],{icon: greenIcon}).addTo(map)
+
+                Marcador= L.marker([0,0],{icon: inicio}).addTo(map)
                 
               $('#coordenadas').load("./Latitud.php", function(){
 
@@ -143,7 +154,7 @@
 
                 var Longitud = ""+coordenadas_1[0]+"";
 
-                Inicio= L.marker([parseFloat(Latitud),parseFloat(Longitud)]).addTo(map); 
+                Inicio= L.marker([parseFloat(Latitud),parseFloat(Longitud)],{icon: fin}).addTo(map); 
                
               });
 
