@@ -33,12 +33,11 @@
 </div>
 <div class="row social">
   <ul class="social-icons">
-    <li><a href="#"><img src="img/fb.png" alt=""></a></li>
-    <li><a href="#"><img src="img/tw.png" alt=""></a></li>
-    <li><a href="#"><img src="img/go.png" alt=""></a></li>
-    <li><a href="#"><img src="img/pin.png" alt=""></a></li>
-    <li><a href="#"><img src="img/st.png" alt=""></a></li>
-    <li><a href="#"><img src="img/dr.png" alt=""></a></li>
+    <li><a href="#"><img src="img/facebook.png" alt=""></a></li>
+    <li><a href="#"><img src="img/instagram.png" alt=""></a></li>
+    <li><a href="#"><img src="img/twitter.png" alt=""></a></li>
+    <li><a href="#"><img src="img/github.png" alt=""></a></li>
+    <li><a href="#"><img src="img/linkedin.png" alt=""></a></li>
   </ul>
 </div>
 <div class="footer" href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css">
