@@ -64,6 +64,22 @@
         <p> <button type="button" id='Boton'>Centrar</button></p>
       </center>
     </div>
+    <script>
+      const FI = document.getElementById('FechaIn');
+      FI.addEventListener('focusout', (event) => {
+        document.getElementById('FechaFn').min = document.getElementById('FechaIn').value;
+
+        if (document.getElementById('FechaFn').min > document.getElementById('FechaFn').value) {
+          document.getElementById('FechaFn').value = document.getElementById('FechaFn').min;
+        };
+      });
+      const HF = document.getElementById('MinFn');
+      HF.addEventListener('focusin', (event) => {
+        if (document.getElementById('FechaFn').value = document.getElementById('FechaIn').value) {
+          document.getElementById('MinFn').min = document.getElementById('MinIn').value;
+        }
+      });
+    </script>
     <div class="mapa">
       <div id='map'></div>
     </div>
