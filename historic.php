@@ -56,6 +56,7 @@
     <div class="tail">
       <form method="POST" action="realTime.php">
         <center>
+          <br>
           <input type="submit" value="Regresar"  name="btnback">
         </center>
       </form>
