@@ -43,7 +43,7 @@
 </div>
 <div class="footer" href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css">
   <div class="container">
-    <p class="pull-left"><a href="https://github.com/mateostiven/Pagina" class="icon-github-circled"> https://github.com/mateostiven/Pagina</a></p>
+    <p class="pull-left"><a href="https://github.com/mateostiven/Pagina" class="icon-github-circled"> https://github.com</a></p>
     <p class="pull-right"><a href="#myModal" role="button" data-toggle="modal"> <i class="icon-mail"></i> CONTACT</a></p>
   </div>
 </div>

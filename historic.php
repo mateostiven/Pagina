@@ -74,7 +74,7 @@
   </div>
   <div class="footer">
     <div class="container">
-      <p class="pull-left"><a href="http://dzyngiri.com">www.dzyngiri.com</a></p>
+      <p class="pull-left"><a href="https://github.com/mateostiven/Pagina" class="icon-github-circled"> https://github.com</a></p>
       <p class="pull-right"><a href="#myModal" role="button" data-toggle="modal"> <i class="icon-mail"></i> CONTACT</a></p>
     </div>
   </div>
