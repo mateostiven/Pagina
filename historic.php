@@ -34,8 +34,8 @@
         <ul class="nav nav-collapse pull-right">
           <li><a href="index.php"> Home</a></li>
           <li><a href="realTime.php">Real Time</a></li>
-          <li><a href="work.php" class="active"> Historic</a></li>
-          <li><a href="resume.php"> About Us</a></li>
+          <li><a href="historic.php" class="active"> Historic</a></li>
+          <li><a href="aboutUs.php"> About Us</a></li>
         </ul>
         <div class="nav-collapse collapse"></div>
       </div>

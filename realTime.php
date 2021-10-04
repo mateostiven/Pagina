@@ -36,8 +36,8 @@
         <ul class="nav nav-collapse pull-right">
           <li><a href="index.php"> Home</a></li>
           <li><a href="realTime.php" class="active">Real Time</a></li>
-          <li><a href="work.php"> Historic</a></li>
-          <li><a href="resume.php"> About Us</a></li>
+          <li><a href="historic.php"> Historic</a></li>
+          <li><a href="aboutUs.php"> About Us</a></li>
         </ul>
         <div class="nav-collapse collapse"></div>
       </div>
@@ -117,7 +117,7 @@
       </table>
     </div>
     <div class="form">
-      <form method="POST" action="work.php">
+      <form method="POST" action="historic.php">
         <center>
           <label for="start">Desde:</label>
           <input type="date" id="FechaIn" name="FechaIn" value="2021-09-23" min="2021-01-01" max="2022-12-31">
