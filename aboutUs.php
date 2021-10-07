@@ -25,7 +25,7 @@
 </div>
 <div class="container resume">
   <h2>Our Team</h2>
-  <h3>grupo 04 ! :)</h3>
+  <h3>group 04 🦾💣</h3>
   <h3>Camilo Torregroza</h3>
   <h3>Mateo Fernandez </h3>
   <h3>Marcos Diaz</h3> 
