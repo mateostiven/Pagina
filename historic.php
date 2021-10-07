@@ -90,6 +90,8 @@
       </form>
     </div>
   </div>
+  <br>
+  <br>
   <!-- <div class="row social">
     <ul class="social-icons">
     <li><a href="#"><img src="img/facebook.png" alt=""></a></li>
