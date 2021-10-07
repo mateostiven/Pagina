@@ -31,14 +31,14 @@
     <p> Con este proyecto se busca que el estudiante relacione los conocimientos de circuitos electrónicos analógicos y digitales con los sistemas de telecomunicaciones, y así, desarrolle una aplicación de telemetría teniendo en cuenta las especificaciones de diseño, y las restricciones de alcance, costo y tiempo; propias de la gestión de proyectos. </p>
     <a href="https://play.google.com/store/apps/details?id=com.autocab.taxibooker.moviltaxi.cartagena" target="_blank" class="hire-me"><i class="icon-download"></i> Download app movil </a> </div>
 </div>
-<div class="row social">
+<!-- <div class="row social">
   <ul class="social-icons">
     <li><a href="#"><img src="img/facebook.png" alt=""></a></li>
     <li><a href="#"><img src="img/instagram.png" alt=""></a></li>
     <li><a href="#"><img src="img/twitter.png" alt=""></a></li>
     <li><a href="#"><img src="img/github.png" alt=""></a></li>
     <li><a href="#"><img src="img/linkedin.png" alt=""></a></li>
-  </ul>
+  </ul> -->
 </div>
 <div class="footer" href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css">
   <div class="container">

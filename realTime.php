@@ -123,7 +123,7 @@
       <div id='map'></div>
     </div>
   </div>
-  <div class="row social">
+  <!-- <div class="row social">
     <ul class="social-icons">
     <li><a href="#"><img src="img/facebook.png" alt=""></a></li>
     <li><a href="#"><img src="img/instagram.png" alt=""></a></li>
@@ -131,7 +131,7 @@
     <li><a href="#"><img src="img/github.png" alt=""></a></li>
     <li><a href="#"><img src="img/linkedin.png" alt=""></a></li>
     </ul>
-  </div>
+  </div> -->
   <div class="footer">
     <div class="container">
       <p class="pull-left"><a href="https://github.com/mateostiven/Pagina"  target="_blank" class="icon-github-circled"> https://github.com</a></p>
