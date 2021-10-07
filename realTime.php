@@ -194,7 +194,7 @@
 
 
     Marcador = L.marker([0, 0], {
-      icon: inicio
+      icon: fin
     }).addTo(map)
 
     $('#coordenadas').load("./Latitud.php", function() {
@@ -208,7 +208,7 @@
       var Longitud = "" + coordenadas_1[0] + "";
 
       Inicio = L.marker([parseFloat(Latitud), parseFloat(Longitud)], {
-        icon: fin
+        icon: inicio
       }).addTo(map);
 
     });
