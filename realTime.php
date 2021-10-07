@@ -132,6 +132,10 @@
     <li><a href="#"><img src="img/linkedin.png" alt=""></a></li>
     </ul>
   </div> -->
+  <br>
+  <br>
+  <br>
+  <br>
   <div class="footer">
     <div class="container">
       <p class="pull-left"><a href="https://github.com/mateostiven/Pagina"  target="_blank" class="icon-github-circled"> https://github.com</a></p>
