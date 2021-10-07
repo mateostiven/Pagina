@@ -27,8 +27,8 @@
   <div class="span3"> <img src="img/mini.png" alt=""> </div>
   <div class="span5">
     <h1>Taxi Service</h1>
-    <h3>Sistema De Telemetría De Un Vehículo</h3>
-    <p> Con este proyecto se busca que el estudiante relacione los conocimientos de circuitos electrónicos analógicos y digitales con los sistemas de telecomunicaciones, y así, desarrolle una aplicación de telemetría teniendo en cuenta las especificaciones de diseño, y las restricciones de alcance, costo y tiempo; propias de la gestión de proyectos. </p>
+    <h3>Vehicle Telemetry System</h3>
+    <p> The aim of this project is for the student to relate the knowledge of analog and digital electronic circuits with telecommunications systems, and thus, develop a telemetry application taking into account the design specifications, and the scope, cost and time restrictions; typical of project management. </p>
     
 </div>
 <!-- <div class="row social">
