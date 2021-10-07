@@ -73,7 +73,7 @@
       });
       const HF = document.getElementById('MinFn');
       HF.addEventListener('focusin', (event) => {
-        if (document.getElementById('FechaFn').value = document.getElementById('FechaIn').value) {
+        if (document.getElementById('FechaFn').value == document.getElementById('FechaIn').value) {
           document.getElementById('MinFn').min = document.getElementById('MinIn').value;
         }
       });
