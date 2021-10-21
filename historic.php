@@ -192,6 +192,7 @@
     }
 
     ?>
+    console.log(<?php $Taxi ?>);
     var polylineH = L.polyline(<?php echo json_encode($Poly) ?>).addTo(map);
 
     var Marcadores = <?php echo json_encode($Marcadores) ?>;
