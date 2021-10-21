@@ -259,8 +259,7 @@
           map.panTo(new L.LatLng(parseFloat($('#Latitud').text()), parseFloat($('#Longitud').text())));
           polyline.addLatLng([parseFloat($('#Latitud').text()), parseFloat($('#Longitud').text())]);
           Marcador.setLatLng([parseFloat($('#Latitud').text()), parseFloat($('#Longitud').text())]);
-
-
+          
         });
 
       }, 1000
@@ -273,5 +272,45 @@
       taxi.addEventListener('change', (event) => {
         Ntaxi=document.getElementById('Taxi').value;
         polyline.setLatLngs([]);
+
+        
+        $('#time').load("./Fecha"+Ntaxi+".php", function() {
+
+
+        var Time = parseFloat($("#time").text());
+
+        var date = new Date(Time);
+
+        var date2 = date.toString();
+
+        var Fecha_Hora_1 = date2.split(" ");
+
+        var Fecha = "" + Fecha_Hora_1[0] + " - " + Fecha_Hora_1[1] + " - " + Fecha_Hora_1[2] + " - " + Fecha_Hora_1[3] + "";
+
+        var Hora = "" + Fecha_Hora_1[4] + "";
+
+        $('#Fecha').text(Fecha);
+        $('#Hora').text(Hora);
+
+        })
+
+        $('#coordenadas').load("./Latitud"+Ntaxi+".php", function() {
+
+        var coordenadas = ($("#coordenadas").text());
+
+        var coordenadas_1 = coordenadas.split("_");
+
+        var Latitud = "" + coordenadas_1[1] + "";
+
+        var Longitud = "" + coordenadas_1[0] + "";
+
+        $('#Latitud').text(Latitud);
+        $('#Longitud').text(Longitud);
+
+        map.panTo(new L.LatLng(parseFloat($('#Latitud').text()), parseFloat($('#Longitud').text())));
+        polyline.addLatLng([parseFloat($('#Latitud').text()), parseFloat($('#Longitud').text())]);
+        Marcador.setLatLng([parseFloat($('#Latitud').text()), parseFloat($('#Longitud').text())]);
+        Inicio.setLatLng([parseFloat($('#Latitud').text()), parseFloat($('#Longitud').text())]);
+        
       });
 </script>
