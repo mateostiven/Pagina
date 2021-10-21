@@ -58,8 +58,8 @@
           <input type="time" id="MinFn" name="MinFn" value="23:30" min="00:00" max="24:00" required>
 
           <p><select id="Taxi" name="Taxi" style="height: 38px; width:75px;">  
-            <option value=1>Taxi 1</option> 
-            <option value=2>Taxi 2</option>
+            <option value="1">Taxi 1</option> 
+            <option value="2">Taxi 2</option>
           </select></p>
 
           <p><input type="submit" values="Enviar" name="btn1"> <button type="button" id='Boton'>Centrar</button></p>
@@ -165,7 +165,7 @@
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     });
     OpenStreetMap_Mapnik.addTo(map);
-
+    console.log(<?php $_POST['Taxi']?>);
 
     <?php
     include '../../Config.php';
@@ -192,7 +192,7 @@
     }
 
     ?>
-    console.log(<?php $Taxi ?>);
+    
     var polylineH = L.polyline(<?php echo json_encode($Poly) ?>).addTo(map);
 
     var Marcadores = <?php echo json_encode($Marcadores) ?>;
