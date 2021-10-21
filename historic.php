@@ -86,10 +86,27 @@
     <div class="mapa">
       <div id='map'></div>
     </div>
-    <br>
-    
+    <div class="tail">
+      <form method="POST" action="realTime.php">
+        <center>
+          <br>
+          <input type="submit" value="Regresar" name="btnback">
+        </center>
+      </form>
     </div>
-    <div class="footer">
+  </div>
+  <br>
+  <br>
+  <!-- <div class="row social">
+    <ul class="social-icons">
+    <li><a href="#"><img src="img/facebook.png" alt=""></a></li>
+    <li><a href="#"><img src="img/instagram.png" alt=""></a></li>
+    <li><a href="#"><img src="img/twitter.png" alt=""></a></li>
+    <li><a href="#"><img src="img/github.png" alt=""></a></li>
+    <li><a href="#"><img src="img/linkedin.png" alt=""></a></li>
+    </ul>
+  </div> -->
+  <div class="footer">
     <div class="container">
       <p class="pull-left"><a href="https://github.com/mateostiven/Pagina"  target="_blank" class="icon-github-circled"> https://github.com</a></p>
       <p class="pull-right"><a href="#myModal" role="button" data-toggle="modal"> <i class="icon-mail"></i> CONTACT</a></p>
@@ -133,26 +150,6 @@
       });
     });
   </script>
-
-<style>
-textarea {
-  resize: none;
-}
-</style>
-
-<label align = "center" for="Mensaje">Tiempos en los que pasó el Taxi:</label>
-
-<center>
-<textarea  resize: none; readonly id="Mensaje" name="Mensaje" rows="5" cols="50">
-
-</textarea>
-<center>
-<br>
-<br>
-<br>
-<br>
-
-
 </body>
 
 </html>
@@ -226,7 +223,7 @@ textarea {
     }).bindPopup(Marcadores[Marcadores.length - 1][2]).addTo(map)
 
 
-    
+    var popup = L.popup();
 
     function onMapClick(e) {
       Mensaje = new String("");
@@ -242,7 +239,7 @@ textarea {
         if ((lngb - 0.001) < lngM && lngM < (lngb + 0.001) && (latb - 0.001) < latM && latM < (latb + 0.001)) {
 
           if ((Marcadores[$i][2].slice(0, -3) != Marcadores[Fi][2].slice(0, -3)) || (Mensaje == "")) {
-            Mensaje = Mensaje +"\n"+ Marcadores[$i][2];
+            Mensaje = Mensaje + "<br> " + Marcadores[$i][2];
 
           }
 
@@ -250,7 +247,7 @@ textarea {
         };
       };
 
-     $("#Mensaje").val(Mensaje.substring(2));
+      popup.setLatLng(e.latlng).setContent("Pasó a las: " + Mensaje).openOn(map);
     }
 
     map.on('click', onMapClick);
