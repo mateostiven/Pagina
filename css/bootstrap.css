@@ -2833,25 +2833,20 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 	overflow: visible;
  *position: relative;
  *z-index: 2;
+ 	margin-right: auto;
+    margin-left: auto;
 }
 
-.navbar {
-    margin-right: auto;
-    margin-left: auto;
-    *zoom: 1;
-}
 .navbar-inner {
 	min-height: 40px;
 	padding-left: 20px;
 	padding-right: 20px;
+	margin-right: auto;
+    margin-left: auto;
 	background-color: #f04949;
  *zoom: 1;
 }
-.navbar-inner{
-	margin-right: auto;
-    margin-left: auto;
-    *zoom: 1;
-}
+
 .navbar-inner:before, .navbar-inner:after {
 	display: table;
 	content: "";
