@@ -2834,6 +2834,7 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
  *position: relative;
  *z-index: 2;
 }
+
 .navbar {
     margin-right: auto;
     margin-left: auto;
@@ -2845,6 +2846,11 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 	padding-right: 20px;
 	background-color: #f04949;
  *zoom: 1;
+}
+.navbar-inner{
+	margin-right: auto;
+    margin-left: auto;
+    *zoom: 1;
 }
 .navbar-inner:before, .navbar-inner:after {
 	display: table;
