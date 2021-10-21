@@ -271,7 +271,7 @@
   const taxi = document.getElementById('Taxi');
       taxi.addEventListener('change', (event) => {
         Ntaxi=document.getElementById('Taxi').value;
-        polyline.setLatLngs([]);
+
 
         
         $('#time').load("./Fecha"+Ntaxi+".php", function() {
@@ -306,8 +306,8 @@
 
         $('#Latitud').text(Latitud);
         $('#Longitud').text(Longitud);
-
-        map.panTo(new L.LatLng(parseFloat($('#Latitud').text()), parseFloat($('#Longitud').text())));
+        
+        polyline.setLatLngs([]);  
         polyline.addLatLng([parseFloat($('#Latitud').text()), parseFloat($('#Longitud').text())]);
         Marcador.setLatLng([parseFloat($('#Latitud').text()), parseFloat($('#Longitud').text())]);
         Inicio.setLatLng([parseFloat($('#Latitud').text()), parseFloat($('#Longitud').text())]);
