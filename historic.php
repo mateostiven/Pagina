@@ -59,6 +59,11 @@
 
           <p><input type="submit" values="Enviar" name="btn1"> <button type="button" id='Boton'>Centrar</button></p>
 
+        <select id="Taxi" style="height: 38px; width:75px;">  
+          <option value=1>Taxi 1</option> 
+          <option value=2>Taxi 2</option>
+        </select> 
+        
         </form>
       </center>
     </div>
@@ -169,10 +174,10 @@
     $FIn = strval($FIn * 1000);
     $FFn = DateTime::createFromFormat('Y-m-d H:i:s', $_POST['FechaFn'] . " " . $_POST['MinFn'] . ':00', new DateTimeZone('GMT-5'))->getTimestamp();
     $FFn = strval($FFn * 1000);
-
+    $Taxi=$_POST['Taxi'];
     date_default_timezone_set("America/Bogota");
 
-    $sql = "SELECT * FROM datos WHERE Fecha BETWEEN $FIn AND $FFn ORDER BY Fecha DESC";
+    $sql = "SELECT * FROM datos WHERE Taxi=$Taxi Fecha BETWEEN $FIn AND $FFn ORDER BY Fecha DESC";
     $result = $conexion->query($sql);
 
     if ($result->num_rows > 0) {
