@@ -119,19 +119,19 @@
     <div class="form">
       
     </div>
+    <center>
+    <select id="Taxi" style="height: 38px; width:75px;">  
+      <option value=1>Taxi 1</option> 
+      <option value=2>Taxi 2</option>
+    </select> 
+    </center> 
+    <br>
+
     <div class="mapa">
       <div id='map'></div>
     </div>
   </div>
-  <!-- <div class="row social">
-    <ul class="social-icons">
-    <li><a href="#"><img src="img/facebook.png" alt=""></a></li>
-    <li><a href="#"><img src="img/instagram.png" alt=""></a></li>
-    <li><a href="#"><img src="img/twitter.png" alt=""></a></li>
-    <li><a href="#"><img src="img/github.png" alt=""></a></li>
-    <li><a href="#"><img src="img/linkedin.png" alt=""></a></li>
-    </ul>
-  </div> -->
+
   <br>
   <br>
   <br>
@@ -170,6 +170,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
 
+    Ntaxi=1;
     var map = L.map('map').setView([0, 0], 15);
     var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
@@ -201,7 +202,7 @@
       icon: fin
     }).addTo(map)
 
-    $('#coordenadas').load("./Latitud.php", function() {
+    $('#coordenadas').load("./Latitud1.php", function() {
 
       var coordenadas = ($("#coordenadas").text());
 
@@ -222,7 +223,7 @@
 
       function() {
 
-        $('#time').load("./Fecha.php", function() {
+        $('#time').load("./Fecha"+Ntaxi+".php", function() {
 
 
           var Time = parseFloat($("#time").text());
@@ -242,7 +243,7 @@
 
         })
 
-        $('#coordenadas').load("./Latitud.php", function() {
+        $('#coordenadas').load("./Latitud"+Ntaxi+".php", function() {
 
           var coordenadas = ($("#coordenadas").text());
 
@@ -266,4 +267,11 @@
     );
 
   });
+
+
+  const taxi = document.getElementById('Taxi');
+      taxi.addEventListener('change', (event) => {
+        Ntaxi=document.getElementById('Taxi').value;
+        polyline.setLatLngs([]);
+      });
 </script>
