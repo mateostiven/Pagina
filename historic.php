@@ -177,7 +177,7 @@
     $Taxi=$_POST['Taxi'];
     date_default_timezone_set("America/Bogota");
 
-    $sql = "SELECT * FROM datos WHERE Taxi=$Taxi Fecha BETWEEN $FIn AND $FFn ORDER BY Fecha DESC";
+    $sql = "SELECT * FROM datos WHERE Taxi=$Taxi AND Fecha BETWEEN $FIn AND $FFn ORDER BY Fecha DESC";
     $result = $conexion->query($sql);
 
     if ($result->num_rows > 0) {
