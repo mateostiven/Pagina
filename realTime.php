@@ -313,4 +313,5 @@
         Inicio.setLatLng([parseFloat($('#Latitud').text()), parseFloat($('#Longitud').text())]);
         
       });
+      }
 </script>
