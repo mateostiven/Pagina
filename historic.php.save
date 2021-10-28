@@ -8,6 +8,10 @@
   <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
   <style>
+   	
+    table, th, tr{
+	border: 1px solid white;
+} 
     #map {
       width: 100%;
       height: 400px;
@@ -28,6 +32,8 @@
 </head>
 
 <body>
+
+
   <div class="navbar">
     <div class="navbar-inner">
       <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="index.php"><img src="img/user.jpg" alt=""></a>
@@ -86,10 +92,27 @@
     <div class="mapa">
       <div id='map'></div>
     </div>
-    <br>
-    
+    <div class="tail">
+      <form method="POST" action="realTime.php">
+        <center>
+          <br>
+          <input type="submit" value="Regresar" name="btnback">
+        </center>
+      </form>
     </div>
-    <div class="footer">
+  </div>
+  <br>
+  <br>
+  <!-- <div class="row social">
+    <ul class="social-icons">
+    <li><a href="#"><img src="img/facebook.png" alt=""></a></li>
+    <li><a href="#"><img src="img/instagram.png" alt=""></a></li>
+    <li><a href="#"><img src="img/twitter.png" alt=""></a></li>
+    <li><a href="#"><img src="img/github.png" alt=""></a></li>
+    <li><a href="#"><img src="img/linkedin.png" alt=""></a></li>
+    </ul>
+  </div> -->
+  <div class="footer">
     <div class="container">
       <p class="pull-left"><a href="https://github.com/mateostiven/Pagina"  target="_blank" class="icon-github-circled"> https://github.com</a></p>
       <p class="pull-right"><a href="#myModal" role="button" data-toggle="modal"> <i class="icon-mail"></i> CONTACT</a></p>
@@ -133,16 +156,111 @@
       });
     });
   </script>
-<center>
-<div class="slider-wrapper">
-  <input type="range"  id = "range" min="0" step="1" value="0">
-</div>
-<center>
-<br>
-<br>
-<br>
-<br>
+<div class="table">
+<table align="center", class="tg">
+  <tr>
+    <th>
+      Tiempos en los que pasó el Taxi
+    </th>
+  </tr>
+<tbody>
+<tr>
+  <td align="center", class="tg-0lax">
+    
+  <div id='time1'></div>
 
+  </td>
+
+
+</tr>
+
+<tr>
+
+<td align="center", class="tg-0lax">
+  
+  <div align= "center" alid='time2'></div>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center", class="tg-0lax">
+  
+  <div id='time3'></div>
+
+</td>
+</tr>
+
+<tr>
+<td align="center", class="tg-0lax">
+  
+  <div id='time4'></div>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center", class="tg-0lax">
+  
+  <div id='time5'></div>
+
+</td>
+</tr>
+
+<tr>
+<td align="center", class="tg-0lax">
+  
+  <div id='time6'></div>
+
+</td>
+
+</tr>
+<tr>
+<td align="center", class="tg-0lax">
+  
+  <div id='time7'></div>
+  
+</td>
+
+
+</tr>
+
+<tr>
+<td align="center", class="tg-0lax">
+  
+  <div id='time8'></div>
+  
+</td>
+
+
+</tr>
+
+<tr>
+<td align="center", class="tg-0lax">
+  
+  <div id='time9'></div>
+  
+</td>
+
+
+</tr>
+
+<tr>
+<td align="center", class="tg-0lax">
+  
+  <div id='time10'></div>
+  
+</td>
+
+
+</tr>
+</tbody>
+</table>
+</div>
 
 </body>
 
@@ -217,38 +335,57 @@
     }).bindPopup(Marcadores[Marcadores.length - 1][2]).addTo(map)
 
 
-    	
+    
 
-	
-
-        Mensaje = new String("");
- 
-
-	var recorrido = document.getElementById('range');
-	recorrido.setAttribute("max", Marcadores.length -1);
-
-        var range = document.getElementById('range');
-        range.addEventListener('mousemove',function(){
-
-	var valor = range.value;
-
-        latM = parseFloat(Marcadores[valor][0]);
-        lngM = parseFloat(Marcadores[valor][1]);
-
-        
-
-        
-        Mensaje = Marcadores[valor][2];
-	var popup = L.popup()
-        .setLatLng([latM, lngM])
-        .setContent(Mensaje)
-        .openOn(map);
-        
-
-    })
+    function onMapClick(e) {
+      Mensaje = new String("");
+      Fi = 0;
+      latb = (Math.round(e.latlng.lat * 1000.0) / 1000.0);
+      lngb = (Math.round(e.latlng.lng * 1000.0) / 1000.0);;
 
 
-   
+      for ($i = 0; $i < Marcadores.length - 1; $i++) {
+        latM = parseFloat(Marcadores[$i][0]);
+        lngM = parseFloat(Marcadores[$i][1]);
+
+        if ((lngb - 0.001) < lngM && lngM < (lngb + 0.001) && (latb - 0.001) < latM && latM < (latb + 0.001)) {
+
+          if ((Marcadores[$i][2].slice(0, -3) != Marcadores[Fi][2].slice(0, -3)) || (Mensaje == "")) {
+             Mensaje = Mensaje+"_"+Marcadores[$i][2];
+
+          }
+
+          Fi = $i;
+        };
+      };
+	var times = Mensaje.split("_");
+
+      var time1 = times[0];
+      var time2 = times[1];
+      var time3 = times[2];
+      var time4 = times[3];
+      var time5 = times[4];
+      var time6 = times[5];
+      var time7 = times[6];
+      var time8 = times[7];
+      var time9 = times[8];
+      var time10 = times[9];
+
+      $('#time1').text(time1);
+      $('#time2').text(time2);
+      $('#time3').text(time3);
+      $('#time4').text(time4);
+      $('#time5').text(time5);
+      $('#time6').text(time6);
+      $('#time7').text(time7);
+      $('#time8').text(time8);
+      $('#time9').text(time9);
+      $('#time10').text(time10);      
+
+      
+    }
+
+    map.on('click', onMapClick);
 
     map.fitBounds(polylineH.getBounds());
 
