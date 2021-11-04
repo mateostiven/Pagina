@@ -132,6 +132,15 @@
     </div>
   </div>
 
+  <label align = "center" for="rpmid">RPM en tiempo real:</label>
+
+  <center>
+  <textarea  resize: none; readonly id="rpmid" name="rpmid" rows="1" cols="50">
+
+  </textarea>
+  <center>
+  
+  
   <br>
   <br>
   <br>
@@ -171,13 +180,7 @@ textarea {
 }
 </style>
 
-<label align = "center" for="rpmid">RPM en tiempo real:</label>
 
-<center>
-<textarea  resize: none; readonly id="rpmid" name="rpmid" rows="1" cols="50">
-
-</textarea>
-<center>
 
 </body>
 
