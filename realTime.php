@@ -163,6 +163,22 @@
   <script>
     $('#myModal').modal('hidden')
   </script>
+
+
+<style>
+textarea {
+  resize: none;
+}
+</style>
+
+<label align = "center" for="rpmid">RPM en tiempo real:</label>
+
+<center>
+<textarea  resize: none; readonly id="rpmid" name="rpmid" rows="1" cols="50">
+
+</textarea>
+<center>
+
 </body>
 
 </html>
@@ -222,6 +238,22 @@
     setInterval(
 
       function() {
+
+        $('#rpm').load("rpm.php", function(){
+
+          Mensaje = new String("");
+
+          Mensaje = (("#rpm").text());
+
+          if(Ntaxi == 2){
+
+          Mensaje = "Solo disponible para Taxi 1";
+
+          }
+
+          $("#rpmid").val(Mensaje);
+
+        })
 
         $('#time').load("./Fecha"+Ntaxi+".php", function() {
 
