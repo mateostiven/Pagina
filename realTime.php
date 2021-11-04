@@ -242,7 +242,7 @@ textarea {
 
       function() {
 
-        $('#rpm').load("rpm.php", function(){
+        $('#rpmid').load("rpm.php", function(){
 
           Mensaje = new String("");
 
