@@ -246,7 +246,7 @@ textarea {
 
           Mensaje = new String("");
 
-          Mensaje = (("#rpmid").text());
+          Mensaje = ($("#rpmid").text());
 
           if(Ntaxi == 2){
 
