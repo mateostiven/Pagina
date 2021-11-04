@@ -254,7 +254,7 @@ textarea {
 
           }
 
-          $("#rpmid").val(Mensaje);
+          $("#rpmid").text(Mensaje);
 
         })
 
