@@ -9,7 +9,7 @@
     });
     OpenStreetMap_Mapnik.addTo(map);
     polyline1= L.polyline([]).addTo(map); 
-    polyline2= L.polyline([],{color:red}); 
+    polyline2= L.polyline([],{color:'red'}); 
 
     var inicio = new L.Icon({
       iconUrl: 'startpoint.png',
