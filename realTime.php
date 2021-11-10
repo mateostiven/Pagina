@@ -104,7 +104,7 @@
                 <td class="tg-0lax"><div id='Hora1'></div></td>
                 <td class="tg-0lax"><div id='Longitud1'></div></td>
                 <td class="tg-0lax"><div id='Latitud1'></div></td>
-                <td class="tg-0lax"> No disponible para Taxi 1</td>
+                <td class="tg-0lax"><div id='rpmid2'></div></td>
             </tr>
         </tbody>
     </table>
@@ -126,7 +126,7 @@
                 <td class="tg-0lax"><div id='Hora2'></div></td>
                 <td class="tg-0lax"><div id='Longitud2'></div></td>
                 <td class="tg-0lax"><div id='Latitud2'></div></td>
-                <td class="tg-0lax"><div id='rpmid2'></td>
+                <td class="tg-0lax">No disponible</td>
             </tr>
         </tbody>
     </table>
