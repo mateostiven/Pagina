@@ -104,7 +104,7 @@
                 <td class="tg-0lax"><div id='Hora1'></div></td>
                 <td class="tg-0lax"><div id='Longitud1'></div></td>
                 <td class="tg-0lax"><div id='Latitud1'></div></td>
-                <td class="tg-0lax"><div id='rpmid2'></div></td>
+                <td class="tg-0lax"><div id='rpmid'></div></td>
             </tr>
         </tbody>
     </table>
