@@ -76,7 +76,7 @@
         $('#rpmid').load("rpm.php");
 
         for(i=1;i<=2;i++){
-        await $('#time'+i).load("./Fecha"+i+".php", function() {
+         $('#time'+i).load("./Fecha"+i+".php", function() {
 
           var date = new Date(parseFloat($("#time"+i).text()));
 
@@ -88,12 +88,12 @@
 
           var Hora= "" + Fecha_Hora[4] + "";
 
-          $('#Fecha'+i).text(Fecha);
-          $('#Hora'+i).text(Hora);
+          $('#Fecha1').text(Fecha);
+          $('#Hora1').text(Hora);
 
         });
 
-       await $('#coordenadas'+i).load("./Latitud"+i+".php", function() {
+        $('#coordenadas'+i).load("./Latitud"+i+".php", function() {
 
           var coordenadas = ($("#coordenadas"+i).text());
 
