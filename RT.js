@@ -119,7 +119,7 @@
         });
         }
 
-        if(Ntai!=3){
+        if(Ntaxi!=3){
         map.panTo(new L.LatLng(parseFloat($('#Latitud'+Ntaxi).text()), parseFloat($('#Longitud'+Ntaxi).text())));
         }
 
