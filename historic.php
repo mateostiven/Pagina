@@ -143,6 +143,29 @@
 <br>
 <br>
 
+<center>
+  <textarea  resize: none; readonly id="rpmid" name="rpmid" rows="1" cols="50">
+
+  </textarea>
+  <center>
+  
+  
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <center>
+  <textarea  resize: none; readonly id="dateid" name="dateid" rows="1" cols="50">
+
+  </textarea>
+  <center>
+  
+  
+  <br>
+  <br>
+  <br>
+  <br>
 
 </body>
 
@@ -178,7 +201,7 @@
       while ($row = $result->fetch_assoc()) {
         $Poly[] = array($row['Longitud'], $row['Latitud']);
         $Fecha = date('Y-m-d H:i:s', doubleval($row['Fecha']) / 1000);
-        $Marcadores[] = array($row['Longitud'], $row['Latitud'], $Fecha);
+        $Marcadores[] = array($row['Longitud'], $row['Latitud'], $Fecha, $row['rpm']);
       };
     } else {
       $Poly[] = [];
@@ -208,6 +231,14 @@
       popupAnchor: [0, 0]
     });
 
+    var pointer = new L.Icon({
+      iconUrl: 'down.png',
+
+      iconSize: [40, 40],
+      iconAnchor: [10, 20],
+      popupAnchor: [0, 0]
+    });
+
     marker = new L.marker([parseFloat(Marcadores[0][0]), parseFloat(Marcadores[0][1])], {
       icon: fin
     }).bindPopup(Marcadores[0][2]).addTo(map)
@@ -221,8 +252,8 @@
 
 	
 
-        Mensaje = new String("");
- 
+        Mensaje_date = new String("");
+        Mensaje_rpm = new String("");
 
 	var recorrido = document.getElementById('range');
 	recorrido.setAttribute("max", Marcadores.length -1);
@@ -230,19 +261,24 @@
         var range = document.getElementById('range');
         range.addEventListener('mousemove',function(){
 
-	var valor = range.value;
+	        var valor = range.value;
 
-        latM = parseFloat(Marcadores[valor][0]);
-        lngM = parseFloat(Marcadores[valor][1]);
 
-        
+          Mensaje_date = Marcadores[valor][2];
+          Mensaje_rpm = Marcadores[valor][3];
 
-        
-        Mensaje = Marcadores[valor][2];
-	var popup = L.popup()
-        .setLatLng([latM, lngM])
-        .setContent(Mensaje)
-        .openOn(map);
+          marker = new L.marker([parseFloat(Marcadores[valor][0]), parseFloat(Marcadores[valor][1])], {
+          icon: pointer}).addTo(map)
+
+          if(Ntaxi == 2){
+
+          Mensaje_rpm = "Solo disponible para Taxi 1";
+
+          }
+          
+          $("#rpmid").text(Mensaje_rpm);
+          $("#dateid").text(Mensaje_date);
+          
         
 
     })
