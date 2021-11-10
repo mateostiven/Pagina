@@ -2,9 +2,12 @@
 <html lang="en">
 
 <head>
-  <div hidden id='time'></div>
+  <div hidden id='time1'></div>
+  <div hidden id='coordenadas1'></div>
+  <div hidden id='time2'></div>
+  <div hidden id='coordenadas2'></div>
 
-  <div hidden id='coordenadas'></div>
+
 
   <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
@@ -84,45 +87,59 @@
         vertical-align: top
       }
     </style>
-    <div class="table">
-      <table align="center" , class="tg">
-        <thead>
-          <tr>
-            <th class="tg-baqh">Fecha</th>
-            <th class="tg-0lax">
-              <div id='Fecha'></div>
-            </th>
-          </tr>
-        </thead>
+
+    <div id="TablaT1">
+    <table  align="center" , class="tg", >
         <tbody>
-          <tr>
-            <td class="tg-baqh">Hora</td>
-            <td class="tg-0lax">
-              <div id='Hora'></div>
-            </td>
-          </tr>
-          <tr>
-            <td class="tg-baqh">Longitud</td>
-            <td class="tg-0lax">
-              <div id='Longitud'></div>
-            </td>
-          </tr>
-          <tr>
-            <td class="tg-baqh">Latitud</td>
-            <td class="tg-0lax">
-              <div id='Latitud'></div>
-            </td>
-          </tr>
+            <tr>
+                <td class="tg-9wq8" rowspan=2> TAXI 1</td>
+                <td class="tg-baqh">FECHA</td>
+                <td class="tg-baqh">HORA</td>
+                <td class="tg-baqh">LONGITUD</td>
+                <td class="tg-baqh">LATITUD</td>
+                <td class="tg-baqh">RPM</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax"><div id='Fecha1'></div></td>
+                <td class="tg-0lax"><div id='Hora1'></div></td>
+                <td class="tg-0lax"><div id='Longitud1'></div></td>
+                <td class="tg-0lax"><div id='Latitud1'></div></td>
+                <td class="tg-0lax"> No disponible para Taxi 1</td>
+            </tr>
         </tbody>
-      </table>
+    </table>
     </div>
+    <br>
+    <div id="TablaT2" hidden>
+    <table  align="center" , class="tg", >
+        <tbody>
+            <tr>
+                <td class="tg-9wq8" rowspan=2> TAXI 2</td>
+                <td class="tg-baqh"> FECHA</td>
+                <td class="tg-baqh">HORA</td>
+                <td class="tg-baqh">LONGITUD</td>
+                <td class="tg-baqh">LATITUD</td>
+                <td class="tg-baqh">RPM</td>
+            </tr>
+            <tr>
+                <td class="tg-0lax"><div id='Fecha2'></div></td>
+                <td class="tg-0lax"><div id='Hora2'></div></td>
+                <td class="tg-0lax"><div id='Longitud2'></div></td>
+                <td class="tg-0lax"><div id='Latitud2'></div></td>
+                <td class="tg-0lax"><div id='rpmid2'></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <br>
     <div class="form">
-      
     </div>
     <center>
-    <select id="Taxi" style="height: 38px; width:75px;">  
-      <option value=1>Taxi 1</option> 
-      <option value=2>Taxi 2</option>
+    <select id="Taxi" style="height: 50px; width:100px;">  
+      <option value=1>  Taxi 1    </option> 
+      <option value=2>  Taxi 2    </option>
+      <option value=3>  Ambos     </option>
     </select> 
     </center> 
     <br>
@@ -132,15 +149,6 @@
     </div>
   </div>
 
-  <label align = "center" for="rpmid">RPM en tiempo real:</label>
-
-  <center>
-  <textarea  resize: none; readonly id="rpmid" name="rpmid" rows="1" cols="50">
-
-  </textarea>
-  <center>
-  
-  
   <br>
   <br>
   <br>
@@ -172,181 +180,8 @@
   <script>
     $('#myModal').modal('hidden')
   </script>
-
-
-<style>
-textarea {
-  resize: none;
-}
-</style>
-
-
-
 </body>
 
 </html>
 
-<script type="text/javascript">
-  $(document).ready(function() {
-
-    Ntaxi=1;
-    var map = L.map('map').setView([0, 0], 15);
-    var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    });
-    OpenStreetMap_Mapnik.addTo(map);
-    polyline = L.polyline([]).addTo(map); //
-
-    var inicio = new L.Icon({
-      iconUrl: 'startpoint.png',
-      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-      iconSize: [40, 40],
-      iconAnchor: [10, 20],
-      popupAnchor: [0, 0],
-      shadowSize: [41, 41]
-    });
-
-    var fin = new L.Icon({
-      iconUrl: 'finalpoint.png',
-      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-      iconSize: [40, 40],
-      iconAnchor: [12, 30],
-      popupAnchor: [1, -34],
-      shadowSize: [41, 41]
-    });
-
-
-    Marcador = L.marker([0, 0], {
-      icon: fin
-    }).addTo(map)
-
-    $('#coordenadas').load("./Latitud1.php", function() {
-
-      var coordenadas = ($("#coordenadas").text());
-
-      var coordenadas_1 = coordenadas.split("_");
-
-      var Latitud = "" + coordenadas_1[1] + "";
-
-      var Longitud = "" + coordenadas_1[0] + "";
-
-      Inicio = L.marker([parseFloat(Latitud), parseFloat(Longitud)], {
-        icon: inicio
-      }).addTo(map);
-
-    });
-
-
-    setInterval(
-
-      function() {
-
-        $('#rpmid').load("rpm.php", function(){
-
-          Mensaje = new String("");
-
-          Mensaje = ($("#rpmid").text());
-
-          if(Ntaxi == 2){
-
-          Mensaje = "Solo disponible para Taxi 1";
-
-          }
-
-          $("#rpmid").text(Mensaje);
-
-        })
-
-        $('#time').load("./Fecha"+Ntaxi+".php", function() {
-
-
-          var Time = parseFloat($("#time").text());
-
-          var date = new Date(Time);
-
-          var date2 = date.toString();
-
-          var Fecha_Hora_1 = date2.split(" ");
-
-          var Fecha = "" + Fecha_Hora_1[0] + " - " + Fecha_Hora_1[1] + " - " + Fecha_Hora_1[2] + " - " + Fecha_Hora_1[3] + "";
-
-          var Hora = "" + Fecha_Hora_1[4] + "";
-
-          $('#Fecha').text(Fecha);
-          $('#Hora').text(Hora);
-
-        })
-
-        $('#coordenadas').load("./Latitud"+Ntaxi+".php", function() {
-
-          var coordenadas = ($("#coordenadas").text());
-
-          var coordenadas_1 = coordenadas.split("_");
-
-          var Latitud = "" + coordenadas_1[1] + "";
-
-          var Longitud = "" + coordenadas_1[0] + "";
-
-          $('#Latitud').text(Latitud);
-          $('#Longitud').text(Longitud);
-
-          map.panTo(new L.LatLng(parseFloat($('#Latitud').text()), parseFloat($('#Longitud').text())));
-          polyline.addLatLng([parseFloat($('#Latitud').text()), parseFloat($('#Longitud').text())]);
-          Marcador.setLatLng([parseFloat($('#Latitud').text()), parseFloat($('#Longitud').text())]);
-          
-        });
-
-      }, 1000
-    );
-
-  });
-
-
-  const taxi = document.getElementById('Taxi');
-      taxi.addEventListener('change', (event) => {
-        Ntaxi=document.getElementById('Taxi').value;
-
-
-        
-        $('#time').load("./Fecha"+Ntaxi+".php", function() {
-
-
-        var Time = parseFloat($("#time").text());
-
-        var date = new Date(Time);
-
-        var date2 = date.toString();
-
-        var Fecha_Hora_1 = date2.split(" ");
-
-        var Fecha = "" + Fecha_Hora_1[0] + " - " + Fecha_Hora_1[1] + " - " + Fecha_Hora_1[2] + " - " + Fecha_Hora_1[3] + "";
-
-        var Hora = "" + Fecha_Hora_1[4] + "";
-
-        $('#Fecha').text(Fecha);
-        $('#Hora').text(Hora);
-
-        })
-
-        $('#coordenadas').load("./Latitud"+Ntaxi+".php", function() {
-
-        var coordenadas = ($("#coordenadas").text());
-
-        var coordenadas_1 = coordenadas.split("_");
-
-        var Latitud = "" + coordenadas_1[1] + "";
-
-        var Longitud = "" + coordenadas_1[0] + "";
-
-        $('#Latitud').text(Latitud);
-        $('#Longitud').text(Longitud);
-        
-        polyline.setLatLngs([]);  
-        polyline.addLatLng([parseFloat($('#Latitud').text()), parseFloat($('#Longitud').text())]);
-        Marcador.setLatLng([parseFloat($('#Latitud').text()), parseFloat($('#Longitud').text())]);
-        Inicio.setLatLng([parseFloat($('#Latitud').text()), parseFloat($('#Longitud').text())]);
-        
-      });
-      });
-</script>
+<script src="RT.js"></script>
