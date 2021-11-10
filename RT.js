@@ -76,7 +76,7 @@
         $('#rpmid').load("rpm.php");
 
         for(i=1;i<=2;i++){
-        $('#time'+i).load("./Fecha"+i+".php", function() {
+        await $('#time'+i).load("./Fecha"+i+".php", function() {
 
           var date = new Date(parseFloat($("#time"+i).text()));
 
@@ -93,7 +93,7 @@
 
         });
 
-        $('#coordenadas'+i).load("./Latitud"+i+".php", function() {
+       await $('#coordenadas'+i).load("./Latitud"+i+".php", function() {
 
           var coordenadas = ($("#coordenadas"+i).text());
 
