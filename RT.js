@@ -77,8 +77,8 @@
 
         for(i=1;i<=2;i++){
          $('#time'+i).load("./Fecha"+i+".php", function() {
-
-          var date = new Date(parseFloat($("#time"+i).text()));
+          var TS=parseFloat($("#time"+i).text());
+          var date = new Date(TS);
 
           var date2 = date.toString();
 
