@@ -143,6 +143,7 @@
 <br>
 <br>
 
+<label align = "center" for="rpmid">RPM de históricos:</label>
 <center>
   <textarea  resize: none; readonly id="rpmid" name="rpmid" rows="1" cols="50">
 
@@ -155,6 +156,7 @@
   <br>
   <br>
 
+  <label align = "center" for="dateid">Tiempos en los que pasó el Taxi:</label>  
   <center>
   <textarea  resize: none; readonly id="dateid" name="dateid" rows="1" cols="50">
 
@@ -235,8 +237,9 @@
       iconUrl: 'down.png',
 
       iconSize: [40, 40],
-      iconAnchor: [10, 20],
-      popupAnchor: [0, 0]
+      iconAnchor: [12, 30],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41]
     });
 
     marker = new L.marker([parseFloat(Marcadores[0][0]), parseFloat(Marcadores[0][1])], {
@@ -267,8 +270,10 @@
           Mensaje_date = Marcadores[valor][2];
           Mensaje_rpm = Marcadores[valor][3];
 
-          marker = new L.marker([parseFloat(Marcadores[valor][0]), parseFloat(Marcadores[valor][1])], {
+          Marcador = new L.marker([parseFloat(Marcadores[0][0]), parseFloat(Marcadores[0][1])], {
           icon: pointer}).addTo(map)
+
+          Marcador.setLatLng([parseFloat(Marcadores[valor][0]), parseFloat(Marcadores[valor][0])]);
 
           if(Ntaxi == 2){
 
@@ -276,8 +281,8 @@
 
           }
           
-          $("#rpmid").text(Mensaje_rpm);
-          $("#dateid").text(Mensaje_date);
+          $("#rpmid").val(Mensaje_rpm);
+          $("#dateid").val(Mensaje_date);
           
         
 
