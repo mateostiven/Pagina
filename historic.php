@@ -335,25 +335,28 @@
 
       var recorrido2 = document.getElementById('range2');
 	    recorrido2.setAttribute("max", Marcadores2.length -1);
-
       var range1 = document.getElementById('range1div');
-      range1.addEventListener('mousemove',function(){
-        var valor1 = range1.value;
-        Mensaje_date1 = Marcadores[valor1][2];
-        Mensaje_rpm1 = Marcadores[valor1][3];
-        Apuntador1.setLatLng([parseFloat(Marcadores1[valor1][0]), parseFloat(Marcadores1[valor1][1])]);          
-        $("#rpmid").text(Mensaje_rpm1);
-        $("#dateid1").text(Mensaje_date1);
-      });
-      range1.addEventListener('mousemove',function(){
-        var valor1 = range1.value;
-        Mensaje_date1 = Marcadores[valor1][2];
-        Mensaje_rpm1 = Marcadores[valor1][3];
-        Apuntador2.setLatLng([parseFloat(Marcadores1[valor1][0]), parseFloat(Marcadores1[valor1][1])]);          
-        $("#rpmid").text(Mensaje_rpm1);
-        $("#dateid1").text(Mensaje_date1);
-      });
-
+      var range2 = document.getElementById('range2div');
+      if(M1!=0){
+        range1.addEventListener('mousemove',function(){
+          var valor1 = range1.value;
+          Mensaje_date1 = Marcadores1[valor1][2];
+          Mensaje_rpm1 = Marcadores1[valor1][3];
+          Apuntador1.setLatLng([parseFloat(Marcadores1[valor1][0]), parseFloat(Marcadores1[valor1][1])]);          
+          $("#rpmid").text(Mensaje_rpm1);
+          $("#dateid1").text(Mensaje_date1);
+        });
+      }
+      if(M2!=0){
+        range2.addEventListener('mousemove',function(){
+          var valor2 = range2.value;
+          Mensaje_date2 = Marcadores2[valor2][2];
+          Apuntador2.setLatLng([parseFloat(Marcadores2[valor1][0]), parseFloat(Marcadores2[valor1][1])]);          
+          $("#dateid2").text(Mensaje_date2);
+        });
+      }
+      
+      
     });
   });
 
