@@ -280,7 +280,7 @@
 
       Fin2.setLatlng([parseFloat(Marcadores2[Marcadores2.length - 1][0]), parseFloat(Marcadores2[Marcadores2.length - 1][1])]);
       
-    }
+    });
     
     Ntaxi=document.getElementById('Taxi').value;
       if (Ntaxi==1){
