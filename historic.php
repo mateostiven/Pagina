@@ -274,7 +274,7 @@
 
           Marcador.setLatLng([parseFloat(Marcadores[valor][0]), parseFloat(Marcadores[valor][1])]);
 
-          if(Taxi == 2){
+          if($Taxi == 2){
 
           Mensaje_rpm = "Solo disponible para Taxi 1";
 
