@@ -14,6 +14,10 @@ a.brand img {
 	color: #39D084;
 }
 /***** Profile *****/
+.profile{
+	margin: 0 10px;
+	width: auto;
+}
 	.profile h1 {
 	color:#39d084;
 	font-weight: normal;
