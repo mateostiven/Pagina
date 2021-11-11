@@ -75,40 +75,6 @@
       function() {
         $('#rpmid').load("rpm.php");
 
-        i=1;
-        $('#time'+i).load("./Fecha"+i+".php", function() {
-           
-          var date = new Date(parseFloat($("#time"+i).text()));
-
-          var date2 = date.toString();
-
-          var Fecha_Hora = date2.split(" ");
-
-          var Fecha = "" + Fecha_Hora[0] + " - " + Fecha_Hora[1] + " - " + Fecha_Hora[2] + " - " + Fecha_Hora[3] + "";
-
-          var Hora= "" + Fecha_Hora[4] + "";
-
-          $('#Fecha'+i).text(Fecha);
-          $('#Hora'+i).text(Hora);
-
-        });
-
-        $('#coordenadas'+i).load("./Latitud"+i+".php", function() {
-
-          var coordenadas = ($("#coordenadas"+i).text());
-
-          var coordenadas_1 = coordenadas.split("_");
-
-          var Latitud = "" + coordenadas_1[1] + "";
-
-          var Longitud = "" + coordenadas_1[0] + "";
-
-          $('#Latitud'+i).text(Latitud);
-          $('#Longitud'+i).text(Longitud);
-
-            polyline1.addLatLng([parseFloat($('#Latitud1').text()), parseFloat($('#Longitud1').text())]);
-            Marcador1.setLatLng([parseFloat($('#Latitud1').text()), parseFloat($('#Longitud1').text())]);
-          });
         i=2;
         
         $('#time'+i).load("./Fecha"+i+".php", function() {
