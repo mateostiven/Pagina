@@ -116,8 +116,9 @@
           }
           
         });
+          if(i==1){setTimeout(function(){}, 1000);}
         }
-        if(i==1){setTimeout(function(){}, 1000);}
+
         if(Ntaxi!=3){
         map.panTo(new L.LatLng(parseFloat($('#Latitud'+Ntaxi).text()), parseFloat($('#Longitud'+Ntaxi).text())));
         }
