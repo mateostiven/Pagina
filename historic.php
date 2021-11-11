@@ -281,7 +281,10 @@
         Inicio2.setLatLng([parseFloat(Marcadores2[0][0]), parseFloat(Marcadores2[0][1])]);
         //Fin2.setLatlng([parseFloat(Marcadores2[Marcadores2.length - 1][0]), parseFloat(Marcadores2[Marcadores2.length - 1][1])]);
       }
-    
+      console.log(Marcadores1);
+      console.log(Marcadores1[2]);
+      console.log(Marcadores1[2][2]);
+      
       Ntaxi=document.getElementById('Taxi').value;
       if (Ntaxi==1){
           $('#TablaT1').show();
