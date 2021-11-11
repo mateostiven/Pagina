@@ -113,7 +113,7 @@
         map.panTo(new L.LatLng(parseFloat($('#Latitud'+Ntaxi).text()), parseFloat($('#Longitud'+Ntaxi).text())));
         }
 
-      }, 3000
+      }, 500
     );
 
   });
