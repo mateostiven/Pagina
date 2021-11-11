@@ -335,8 +335,9 @@
 
       var recorrido2 = document.getElementById('range2');
 	    recorrido2.setAttribute("max", Marcadores2.length -1);
-      var range1 = document.getElementById('range1div');
-      var range2 = document.getElementById('range2div');
+      
+      var range1 = document.getElementById('range1');
+      var range2 = document.getElementById('range2');
       if(M1!=0){
         range1.addEventListener('mousemove',function(){
           var valor1 = range1.value;
