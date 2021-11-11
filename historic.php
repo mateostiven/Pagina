@@ -223,7 +223,7 @@
 
   
 </body>
-
+<script src="Icons.js"></script>;
 </html>
 
 <script type="text/javascript">
@@ -235,7 +235,6 @@
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     });
     OpenStreetMap_Mapnik.addTo(map);
-    <script src="Icons.js"></script>
 
     Inicio1= new L.marker([0,0], {icon: inicio});
     Inicio2= new L.marker([0,0], {icon: inicio});
