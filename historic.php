@@ -254,7 +254,6 @@
 
     $.post('Consulta.php', {FechaIn: document.getElementById('FechaIn').value, MinIn:document.getElementById('MinIn').value,
       FechaFn: document.getElementById('FechaFn').value, MinFn:document.getElementById('MinFn').value}, function(data) {
-   	console.log(data);
       Marcadores1=[];
       Marcadores2=[];
       polyline1.setLatLngs([]);
@@ -271,6 +270,7 @@
           polyline2.addLatLng([parseFloat(Tabla[i][0]), parseFloat(Tabla[i][1])]);
         }
       }
+      console.log(Marcadores1);
 
       Inicio1.setLatLng([parseFloat(Marcadores1[0][0]), parseFloat(Marcadores1[0][1])]);
         
