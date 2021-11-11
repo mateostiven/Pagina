@@ -162,6 +162,7 @@
               <div id='dateid'></div>
             </td>
           </tr>
+          </tbody>				
           </table>
           </div>
 <center>
