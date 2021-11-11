@@ -252,11 +252,9 @@
     const Enviar = document.getElementById('enviar');
     Enviar.addEventListener('click', (event) => {
 
-
-      console.log(document.getElementById('FechaIn').value +document.getElementById('MinIn').value+
-      document.getElementById('FechaFn').value+ document.getElementById('MinFn').value);
     $.post('Consulta.php', {FechaIn: document.getElementById('FechaIn').value, MinIn:document.getElementById('MinIn').value,
       FechaFn: document.getElementById('FechaFn').value, MinIn:document.getElementById('MinFn').value}, function(data) {
+   	console.log(data);
       Marcadores1=[];
       Marcadores2=[];
       polyline1.setLatLngs([]);
