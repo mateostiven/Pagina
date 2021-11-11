@@ -215,6 +215,7 @@
 
     ?>
     
+	System.out.print(Marcadores);						  
     var polylineH = L.polyline(<?php echo json_encode($Poly) ?>).addTo(map);
 
     var Marcadores = <?php echo json_encode($Marcadores) ?>;
