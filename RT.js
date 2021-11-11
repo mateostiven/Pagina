@@ -89,7 +89,7 @@
           var Hora= "" + Fecha_Hora[4] + "";
           $('#Fecha'+i).text(Fecha);
           $('#Hora'+i).text(Hora);
-
+          A=i;
         });
         $('#coordenadas'+i).load("./Latitud"+i+".php", function() {
             console.log('Hola4');
@@ -110,11 +110,11 @@
           }else{
             polyline2.addLatLng([parseFloat($('#Latitud2').text()), parseFloat($('#Longitud2').text())]);
             Marcador2.setLatLng([parseFloat($('#Latitud2').text()), parseFloat($('#Longitud2').text())]);
-
           }
-          
+          A=i;
         });
-
+          A=-1;
+          while(A<0){};
         }
 
         if(Ntaxi!=3){
