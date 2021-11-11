@@ -109,7 +109,6 @@
           if (i==1){
             polyline1.addLatLng([parseFloat($('#Latitud1').text()), parseFloat($('#Longitud1').text())]);
             Marcador1.setLatLng([parseFloat($('#Latitud1').text()), parseFloat($('#Longitud1').text())]);
-            setTimeout(function(){}, 1000);
           }else{
             polyline2.addLatLng([parseFloat($('#Latitud2').text()), parseFloat($('#Longitud2').text())]);
             Marcador2.setLatLng([parseFloat($('#Latitud2').text()), parseFloat($('#Longitud2').text())]);
@@ -118,7 +117,7 @@
           
         });
         }
-
+        if(i==1){setTimeout(function(){}, 1000);}
         if(Ntaxi!=3){
         map.panTo(new L.LatLng(parseFloat($('#Latitud'+Ntaxi).text()), parseFloat($('#Longitud'+Ntaxi).text())));
         }
