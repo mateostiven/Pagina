@@ -77,8 +77,10 @@
         $('#rpmid').load("rpm.php");
 
         for(i=1;i<=2;i++){
+          console.log(date);
+          console.log('Hola');
         $('#time'+i).load("./Fecha"+i+".php", function() {
-           
+           console.log('Hola2');
           var date = new Date(parseFloat($("#time"+i).text()));
 
           var date2 = date.toString();
@@ -93,9 +95,9 @@
           $('#Hora'+i).text(Hora);
 
         });
-        console.log(date);
+        console.log('Hola3');
         $('#coordenadas'+i).load("./Latitud"+i+".php", function() {
-
+            console.log('Hola4');
           var coordenadas = ($("#coordenadas"+i).text());
 
           var coordenadas_1 = coordenadas.split("_");
