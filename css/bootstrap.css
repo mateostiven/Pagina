@@ -473,6 +473,10 @@ a:hover, a:focus {
 	margin-left: auto;
  *zoom: 1;
 }
+.container .profile {
+	margin: 0 10px;
+	width: auto;
+} 
 .container:before, .container:after {
 	display: table;
 	content: "";
