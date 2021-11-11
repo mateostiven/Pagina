@@ -235,11 +235,11 @@
 
     var pointer = new L.Icon({
       iconUrl: 'down.png',
-
       iconSize: [40, 40],
-      iconAnchor: [12, 30],
-      popupAnchor: [1, -34],
-      shadowSize: [41, 41]
+      iconAnchor: [10, 20],
+      popupAnchor: [0, 0]
+
+
     });
 
     marker = new L.marker([parseFloat(Marcadores[0][0]), parseFloat(Marcadores[0][1])], {
@@ -249,20 +249,16 @@
     marker = new L.marker([parseFloat(Marcadores[Marcadores.length - 1][0]), parseFloat(Marcadores[Marcadores.length - 1][1])], {
       icon: inicio
     }).bindPopup(Marcadores[Marcadores.length - 1][2]).addTo(map)
-
-
-    	
-
 	
 
         Mensaje_date = new String("");
         Mensaje_rpm = new String("");
 
-	var recorrido = document.getElementById('range');
-	recorrido.setAttribute("max", Marcadores.length -1);
+	      var recorrido = document.getElementById('range');
+	      recorrido.setAttribute("max", Marcadores.length -1);
 
         var range = document.getElementById('range');
-        range.addEventListener('mousemove',function(){
+          range.addEventListener('mousemove',function(){
 
 	        var valor = range.value;
 
@@ -270,7 +266,7 @@
           Mensaje_date = Marcadores[valor][2];
           Mensaje_rpm = Marcadores[valor][3];
 
-          Marcador = new L.marker([parseFloat(Marcadores[0][0]), parseFloat(Marcadores[0][1])], {
+          Marcador = new L.marker((0,0),{
           icon: pointer}).addTo(map)
 
           Marcador.setLatLng([parseFloat(Marcadores[valor][0]), parseFloat(Marcadores[valor][0])]);
@@ -286,7 +282,7 @@
           
         
 
-    })
+        })
 
 
    
