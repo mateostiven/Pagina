@@ -70,13 +70,12 @@
         })
   
       });
-
+      i=2;
     setInterval(
 
       function() {
         $('#rpmid').load("rpm.php");
-
-        for(i=1;i<=2;i++){
+          if(i==1){i=2}else{i=1};
         $('#time'+i).load("./Fecha"+i+".php", function() {
           var date = new Date(parseFloat($("#time"+i).text()));
           
@@ -92,7 +91,6 @@
           A=i;
         });
         $('#coordenadas'+i).load("./Latitud"+i+".php", function() {
-            console.log('Hola4');
           var coordenadas = ($("#coordenadas"+i).text());
 
           var coordenadas_1 = coordenadas.split("_");
@@ -115,7 +113,7 @@
         });
           A=-1;
 
-        }
+        
 
         if(Ntaxi!=3){
         map.panTo(new L.LatLng(parseFloat($('#Latitud'+Ntaxi).text()), parseFloat($('#Longitud'+Ntaxi).text())));
