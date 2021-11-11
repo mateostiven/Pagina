@@ -266,10 +266,10 @@
           Mensaje_date = Marcadores[valor][2];
           Mensaje_rpm = Marcadores[valor][3];
 
-          Marcador = new L.marker((0,0),{
+          Marcador = new L.marker([parseFloat(Marcadores[0][0]), parseFloat(Marcadores[0][1])], {
           icon: pointer}).addTo(map)
 
-          Marcador.setLatLng([parseFloat(Marcadores[valor][0]), parseFloat(Marcadores[valor][0])]);
+          Marcador.setLatLng([parseFloat(Marcadores[valor][0]), parseFloat(Marcadores[valor][1])]);
 
           if(Ntaxi == 2){
 
