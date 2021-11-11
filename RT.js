@@ -74,8 +74,7 @@
 
       function() {
         $('#rpmid').load("rpm.php");
-
-        for(i=1;i<=2;i++){
+          i=1;
          $('#time'+i).load("./Fecha"+i+".php", function() {
           var TS=parseFloat($("#time"+i).text());
           var date = new Date(TS);
@@ -114,7 +113,7 @@
             polyline2.addLatLng([parseFloat($('#Latitud2').text()), parseFloat($('#Longitud2').text())]);
             Marcador2.setLatLng([parseFloat($('#Latitud2').text()), parseFloat($('#Longitud2').text())]);
 
-          }
+          
           
         });
         }
