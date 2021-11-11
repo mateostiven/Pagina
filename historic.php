@@ -2,9 +2,6 @@
 <html lang="en">
 
 <head>
-  <div hidden id='time'></div>
-  <div hidden id='coordenadas'></div>
-
   <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
   <style>
@@ -26,6 +23,45 @@
   <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen">
 </head>
+<style type="text/css">
+      .tg {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+
+      .tg td {
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+      }
+
+      .tg th {
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+      }
+
+      .tg .tg-baqh {
+        text-align: center;
+        vertical-align: top
+      }
+
+      .tg .tg-0lax {
+        text-align: left;
+        vertical-align: top
+      }
+    </style>
 
 <body>
   <div class="navbar">
@@ -45,8 +81,6 @@
     <h2>Historical Travels</h2>
     <div class="head">
       <center>
-        <form method="POST" action="historic.php">
-
           <label for="start">Desde:</label>
           <input type="date" id="FechaIn" name="FechaIn" value="2021-10-07" min="2021-01-01" max="2022-12-31">
 
@@ -60,11 +94,11 @@
           <p><select id="Taxi" name="Taxi" style="height: 38px; width:75px;">  
             <option value="1">Taxi 1</option> 
             <option value="2">Taxi 2</option>
+            <option value="3">Ambos</option> 
           </select></p>
 
-          <p><input type="submit" values="Enviar" name="btn1"> <button type="button" id='Boton'>Centrar</button></p>
-          
-        </form>
+          <p><button type="button" values="Enviar" name="btn1" id='enviar'>Enviar </button>
+            <button type="button" id='Boton'>Centrar</button></p>
       </center>
     </div>
     <script>
@@ -83,6 +117,54 @@
         }
       });
     </script>
+
+<div style="margin: auto; width: 100%;">
+  <div style="float: left; width: 33%;">
+    <table align="center" , class="tg" width="100%" hidden id="TablaT1">
+      <tbody>
+        <tr>
+          <td class="tg-baqh">Taxi 1</td>
+        </tr>
+        <tr>
+ 
+          <td class="tg-baqh"><div id='dateid1'></div>, RPM: <div id='rpmid'></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="float: left; width: 33%;">
+    <table align="center", class="tg" width="100%">
+      <tbody>
+        <tr>
+          <td class="tg-9wq8">
+              <div class="slider-wrapper" id = "range1div" hidden>
+              <input type="range"  id = "range1" min="0" step="1" value="0"> Taxi 1</div>
+              
+              <div class="slider-wrapper" id = "range2div" hidden>
+              <input type="range"  id = "range2" min="0" step="1" value="0"> Taxi 2</div>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <div style="float: left; width: 33%;">
+    <table align="center" , class="tg" width="100%" hidden id="TablaT2">
+      <tbody>
+        <tr>
+          <td class="tg-baqh">Taxi 2 </td>
+        </tr>
+        <tr>
+          <td class="tg-baqh"><div id='dateid2'>, RPM: NaN</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    <div style="clear: both;"></div>
+</div>
+<br>
+
     <div class="mapa">
       <div id='map'></div>
     </div>
@@ -95,6 +177,7 @@
       <p class="pull-right"><a href="#myModal" role="button" data-toggle="modal"> <i class="icon-mail"></i> CONTACT</a></p>
     </div>
   </div>
+
   <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -132,36 +215,7 @@
         }
       });
     });
-  </script>
-<center>
-<div class="slider-wrapper">
-  <input type="range"  id = "range" min="0" step="1" value="0">
-</div>
-<center>
-<br>
-<br>
-<br>
-<br>
-
-
-
-<div id="tablahist">  
- <table  align="center" , class="tg", >
-      <tbody>
-          <tr>
-            <td class="tg-baqh">Tiempo en el que pasó el Taxi</td>
-            <td class="tg-baqh">RPM</td>
-          </tr>
-          <tr>
-            <td class="tg-0lax"><div id='dateid'></div></td>
-            <td class="tg-0lax"><div id='rpmid'></div></td>
-          </tr>
-      </tbody>
- </table>
-</div>
-
-  
-  
+  </script>  
   <br>
   <br>
   <br>
@@ -175,132 +229,142 @@
 <script type="text/javascript">
   $(document).ready(function() {
 
-
-
     var map = L.map('map').setView([0, 0], 15);
     var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     });
     OpenStreetMap_Mapnik.addTo(map);
-    console.log(<?php $_POST['Taxi']?>);
+    <script src="Icons.js"></script>
 
-    <?php
-    include '../../Config.php';
-    $conexion = new mysqli($Host, $Usuario, $Clave, 'taxi');
-    $FIn = DateTime::createFromFormat('Y-m-d H:i:s', $_POST['FechaIn'] . " " . $_POST['MinIn'] . ':00', new DateTimeZone('GMT-5'))->getTimestamp();
-    $FIn = strval($FIn * 1000);
-    $FFn = DateTime::createFromFormat('Y-m-d H:i:s', $_POST['FechaFn'] . " " . $_POST['MinFn'] . ':00', new DateTimeZone('GMT-5'))->getTimestamp();
-    $FFn = strval($FFn * 1000);
-    $Taxi=$_POST['Taxi'];
-    date_default_timezone_set("America/Bogota");
+    Inicio1= new L.marker([0,0], {icon: inicio});
+    Inicio2= new L.marker([0,0], {icon: inicio});
+    Fin1=new L.marker([0,0], {icon: fin});
+    Fin2=new L.marker([0,0], {icon: fin});
+    Apuntador1 = new L.marker([0, 0], {icon: pointer});
+    Apuntador2 = new L.marker([0, 0], {icon: pointer});
+    
+    polyline1= L.polyline([]); 
+    polyline2= L.polyline([],{color:'red'}); 
+    var Mensaje_date1 = new String("");
+    var Mensaje_rpm1 = new String("");
+    var Mensaje_date2 = new String("");
 
-    $sql = "SELECT * FROM datos WHERE Taxi=$Taxi AND Fecha BETWEEN $FIn AND $FFn ORDER BY Fecha DESC";
-    $result = $conexion->query($sql);
+    const Enviar = document.getElementById('enviar');
+    Enviar.addEventListener('click', (event) => {
 
-    if ($result->num_rows > 0) {
-      while ($row = $result->fetch_assoc()) {
-        $Poly[] = array($row['Longitud'], $row['Latitud']);
-        $Fecha = date('Y-m-d H:i:s', doubleval($row['Fecha']) / 1000);
-        $Marcadores[] = array($row['Longitud'], $row['Latitud'], $Fecha, $row['rpm']);
-      };
-    } else {
-      $Poly[] = [];
-      $Marcadores[] = [];
+
+    $.post('Consulta.php', {FechaIn: document.getElementById('FechaIn').value, MinIn:document.getElementById('MinIn').value,
+      FechaFn: document.getElementById('FechaFn').value, MinIn:document.getElementById('MinFn').value}, function(data) {
+      Marcadores1=[];
+      Marcadores2=[];
+      polyline1.setLatLng([]);
+      polyline2.setLatLng([]);
+      Tabla= JSON.parse(data);
+      
+      for(i=0;i<Tabla.length;i++){
+        if(Tabla[i][4]==1){
+          Marcadores1.push(Tabla[i]);
+          polyline1.addLatLng([parseFloat(Tabla[i][0]), parseFloat(Tabla[i][1])]);
+          
+        }else{
+          Marcadores2.push(Tabla[i]);
+          polyline2.addLatLng([parseFloat(Tabla[i][0]), parseFloat(Tabla[i][1])]);
+        }
+      }
+
+      Inicio1.setLatLng([parseFloat(Marcadores1[0][0]), parseFloat(Marcadores1[0][1])]);
+        
+      Inicio2.setLatLng([parseFloat(Marcadores2[0][0]), parseFloat(Marcadores2[0][1])]);
+
+      Fin1.setLatlng([parseFloat(Marcadores1[Marcadores1.length - 1][0]), parseFloat(Marcadores1[Marcadores1.length - 1][1])]);
+
+      Fin2.setLatlng([parseFloat(Marcadores2[Marcadores2.length - 1][0]), parseFloat(Marcadores2[Marcadores2.length - 1][1])]);
+      
     }
+    
+    Ntaxi=document.getElementById('Taxi').value;
+      if (Ntaxi==1){
+          $('#TablaT1').show();
+          $('#TablaT2').hide();
+          $('#range1div').show();
+          $('#range2div').hide();
 
-    ?>
+          map.addLayer(polyline1);
+          map.removeLayer(polyline2);
+          map.addLayer(Fin1);
+          map.removeLayer(Fin2);
+          map.addLayer(Inicio1);
+          map.removeLayer(Inicio2);
+          map.addLayer(Apuntador1);
+          map.removeLayer(Apuntador2);
 
-    var polylineH = L.polyline(<?php echo json_encode($Poly) ?>).addTo(map);
+      };
+      if (Ntaxi==2){
+          $('#TablaT1').hide();
+          $('#TablaT2').show();
+          $('#range1div').hide();
+          $('#range2div').show();
 
-    var Marcadores = <?php echo json_encode($Marcadores) ?>;
+          map.addLayer(polyline2);
+          map.removeLayer(polyline1);
+          map.addLayer(Fin2);
+          map.removeLayer(Fin1);
+          map.addLayer(Inicio2);
+          map.removeLayer(Inicio1);
+          map.addLayer(Apuntador2);
+          map.removeLayer(Apuntador1);
 
-    var fin = new L.Icon({
-      iconUrl: 'finalpoint.png',
-      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-      iconSize: [40, 40],
-      iconAnchor: [12, 30],
-      popupAnchor: [1, -34],
-      shadowSize: [41, 41]
-    });
+      }; 
+      if (Ntaxi==3){
+          $('#TablaT1').show();
+          $('#TablaT2').show();
+          $('#range1div').show();
+          $('#range2div').show();
+          map.addLayer(polyline1);
+          map.addLayer(Fin1);
+          map.addLayer(Inicio1);
+          map.addLayer(polyline2);
+          map.addLayer(Fin2);
+          map.addLayer(Inicio2);
+          map.addLayer(Apuntador1);
+          map.addLayer(Apuntador2);
+      };
+      
+      var recorrido1 = document.getElementById('range1');
+	    recorrido1.setAttribute("max", Marcadores1.length -1);
 
-    var inicio = new L.Icon({
-      iconUrl: 'startpoint.png',
+      var recorrido2 = document.getElementById('range2');
+	    recorrido2.setAttribute("max", Marcadores2.length -1);
 
-      iconSize: [40, 40],
-      iconAnchor: [10, 20],
-      popupAnchor: [0, 0]
-    });
+      var range1 = document.getElementById('range1div');
+      range1.addEventListener('mousemove',function(){
+        var valor1 = range1.value;
+        Mensaje_date1 = Marcadores[valor1][2];
+        Mensaje_rpm1 = Marcadores[valor1][3];
+        Apuntador1.setLatLng([parseFloat(Marcadores1[valor1][0]), parseFloat(Marcadores1[valor1][1])]);          
+        $("#rpmid").text(Mensaje_rpm1);
+        $("#dateid1").text(Mensaje_date1);
+      });
+      range1.addEventListener('mousemove',function(){
+        var valor1 = range1.value;
+        Mensaje_date1 = Marcadores[valor1][2];
+        Mensaje_rpm1 = Marcadores[valor1][3];
+        Apuntador2.setLatLng([parseFloat(Marcadores1[valor1][0]), parseFloat(Marcadores1[valor1][1])]);          
+        $("#rpmid").text(Mensaje_rpm1);
+        $("#dateid1").text(Mensaje_date1);
+      });
 
-    var pointer = new L.Icon({
-      iconUrl: 'down.png',
-      iconSize: [40, 40],
-      iconAnchor: [10, 20],
-      popupAnchor: [0, 0]
-
-
-    });
-
-    marker = new L.marker([parseFloat(Marcadores[0][0]), parseFloat(Marcadores[0][1])], {
-      icon: fin
-    }).bindPopup(Marcadores[0][2]).addTo(map)
-
-    marker = new L.marker([parseFloat(Marcadores[Marcadores.length - 1][0]), parseFloat(Marcadores[Marcadores.length - 1][1])], {
-      icon: inicio
-    }).bindPopup(Marcadores[Marcadores.length - 1][2]).addTo(map)
-	
-
-
-        const taxi = document.getElementById('Taxi');
-        
-        var taxiv = taxi.value;
-
-        var Mensaje_date = new String("");
-        var Mensaje_rpm = new String("");
-
-	      var recorrido = document.getElementById('range');
-	      recorrido.setAttribute("max", Marcadores.length -1);
-
-
-        Marcador = new L.marker([0, 0], {
-          icon: pointer
-          }).addTo(map)
-
-        var range = document.getElementById('range');
-          range.addEventListener('mousemove',function(){
-
-	        var valor = range.value;
-
-
-          Mensaje_date = Marcadores[valor][2];
-          Mensaje_rpm = Marcadores[valor][3];
-
-
-
-          Marcador.setLatLng([parseFloat(Marcadores[valor][0]), parseFloat(Marcadores[valor][1])]);
-
-          if(taxiv == 2){
-
-          Mensaje_rpm = "Solo disponible para Taxi 1";
-
-          }
-          
-          $("#rpmid").text(Mensaje_rpm);
-          $("#dateid").text(Mensaje_date);
-          
-        
-
-        })
-
-
-   
-
-    map.fitBounds(polylineH.getBounds());
+  });
 
     const boton = document.getElementById('Boton');
     boton.addEventListener('click', (event) => {
-      map.fitBounds(polylineH.getBounds());
-
+      if (document.getElementById('Taxi').value==1){
+        map.fitBounds(polyline1.getBounds());
+      };
+      if (document.getElementById('Taxi').value==2){
+        map.fitBounds(polyline2.getBounds());
+      };
     });
 
   });
