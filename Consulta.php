@@ -9,7 +9,7 @@
     $FFn = strval($FFn * 1000);
     date_default_timezone_set("America/Bogota");
 
-    $sql = "SELECT * FROM datos AND Fecha WHERE BETWEEN $FIn AND $FFn ORDER BY Fecha ASC";
+    $sql = "SELECT * FROM datos WHERE Fecha BETWEEN $FIn AND $FFn ORDER BY Fecha ASC";
     $result = $conexion->query($sql);
 
     if ($result->num_rows > 0) {
