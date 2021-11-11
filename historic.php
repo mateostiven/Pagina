@@ -253,12 +253,12 @@
     Enviar.addEventListener('click', (event) => {
 
 
-    $.post('Consulta.php', {FechaIn: document.getElementById('FechaIn').value, MinIn:document.getElementById('MinIn').value,
+    await $.post('Consulta.php', {FechaIn: document.getElementById('FechaIn').value, MinIn:document.getElementById('MinIn').value,
       FechaFn: document.getElementById('FechaFn').value, MinIn:document.getElementById('MinFn').value}, function(data) {
       Marcadores1=[];
       Marcadores2=[];
-      polyline1.setLatLng([]);
-      polyline2.setLatLng([]);
+      polyline1.setLatLngs([]);
+      polyline2.setLatLngs([]);
       Tabla= JSON.parse(data);
       
       for(i=0;i<Tabla.length;i++){
@@ -279,10 +279,7 @@
       Fin1.setLatlng([parseFloat(Marcadores1[Marcadores1.length - 1][0]), parseFloat(Marcadores1[Marcadores1.length - 1][1])]);
 
       Fin2.setLatlng([parseFloat(Marcadores2[Marcadores2.length - 1][0]), parseFloat(Marcadores2[Marcadores2.length - 1][1])]);
-      
-    });
-    
-    Ntaxi=document.getElementById('Taxi').value;
+      Ntaxi=document.getElementById('Taxi').value;
       if (Ntaxi==1){
           $('#TablaT1').show();
           $('#TablaT2').hide();
@@ -354,6 +351,7 @@
         $("#dateid1").text(Mensaje_date1);
       });
 
+    });
   });
 
     const boton = document.getElementById('Boton');
