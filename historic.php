@@ -253,7 +253,7 @@
     Enviar.addEventListener('click', (event) => {
 
     $.post('Consulta.php', {FechaIn: document.getElementById('FechaIn').value, MinIn:document.getElementById('MinIn').value,
-      FechaFn: document.getElementById('FechaFn').value, MinIn:document.getElementById('MinFn').value}, function(data) {
+      FechaFn: document.getElementById('FechaFn').value, MinFn:document.getElementById('MinFn').value}, function(data) {
    	console.log(data);
       Marcadores1=[];
       Marcadores2=[];
