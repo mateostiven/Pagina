@@ -116,8 +116,7 @@
       }, 500
     );
 
-  });
-
+  
 
   const taxi = document.getElementById('Taxi');
       taxi.addEventListener('change', (event) => {
@@ -156,3 +155,4 @@
         };
         
       });
+});
