@@ -264,7 +264,7 @@
 	      recorrido.setAttribute("max", Marcadores.length -1);
 
 
-        Marcador = L.marker([0, 0], {
+        Marcador = new L.marker([0, 0], {
           icon: pointer
           }).addTo(map)
 
