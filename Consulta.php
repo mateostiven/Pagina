@@ -1,5 +1,6 @@
 <?php
     include '../../Config.php';
+    if(isset($_POST['FechaIn'] , $_POST['FechaFn'], $_POST['MinIn'], $_POST['MinFn'])){
     $conexion = new mysqli($Host, $Usuario, $Clave, 'taxi');
 
     $FIn = DateTime::createFromFormat('Y-m-d H:i:s', $_POST['FechaIn'] . " " . $_POST['MinIn'] . ':00', new DateTimeZone('GMT-5'))->getTimestamp();
@@ -18,6 +19,9 @@
       };
     } else {
       $Tabla[] = ['NADA'];
+    } 
+    }else {
+      $Tabla[] = ['NO POST'];
     }
     
     echo json_encode($Tabla);
