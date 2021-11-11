@@ -1,4 +1,5 @@
 
+  
   $(document).ready(function() {
 
     Ntaxi=1;
@@ -75,8 +76,7 @@
       function() {
         $('#rpmid').load("rpm.php");
 
-        i=2;
-        
+        for(i=1;i<=2;i++){
         $('#time'+i).load("./Fecha"+i+".php", function() {
            
           var date = new Date(parseFloat($("#time"+i).text()));
@@ -93,7 +93,7 @@
           $('#Hora'+i).text(Hora);
 
         });
-
+        console.log(date);
         $('#coordenadas'+i).load("./Latitud"+i+".php", function() {
 
           var coordenadas = ($("#coordenadas"+i).text());
@@ -106,10 +106,19 @@
 
           $('#Latitud'+i).text(Latitud);
           $('#Longitud'+i).text(Longitud);
+
+          if (i==1){
+            polyline1.addLatLng([parseFloat($('#Latitud1').text()), parseFloat($('#Longitud1').text())]);
+            Marcador1.setLatLng([parseFloat($('#Latitud1').text()), parseFloat($('#Longitud1').text())]);
+          }else{
+            polyline2.addLatLng([parseFloat($('#Latitud2').text()), parseFloat($('#Longitud2').text())]);
+            Marcador2.setLatLng([parseFloat($('#Latitud2').text()), parseFloat($('#Longitud2').text())]);
+
+          }
           
-          polyline2.addLatLng([parseFloat($('#Latitud2').text()), parseFloat($('#Longitud2').text())]);
-          Marcador2.setLatLng([parseFloat($('#Latitud2').text()), parseFloat($('#Longitud2').text())]);
-          });
+        });
+          if(i==1){await setTimeout(function(){}, 1000);}
+        }
 
         if(Ntaxi!=3){
         map.panTo(new L.LatLng(parseFloat($('#Latitud'+Ntaxi).text()), parseFloat($('#Longitud'+Ntaxi).text())));
