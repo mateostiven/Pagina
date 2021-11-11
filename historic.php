@@ -254,6 +254,11 @@
     }).bindPopup(Marcadores[Marcadores.length - 1][2]).addTo(map)
 	
 
+
+        const taxi = document.getElementById('Taxi');
+        taxi.addEventListener('change');
+        var taxiv = taxi.value;
+
         var Mensaje_date = new String("");
         var Mensaje_rpm = new String("");
 
@@ -274,7 +279,7 @@
 
           Marcador.setLatLng([parseFloat(Marcadores[valor][0]), parseFloat(Marcadores[valor][1])]);
 
-          if($Taxi == 2){
+          if(taxiv == 2){
 
           Mensaje_rpm = "Solo disponible para Taxi 1";
 
