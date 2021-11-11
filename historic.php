@@ -270,7 +270,7 @@
           polyline2.addLatLng([parseFloat(Tabla[i][0]), parseFloat(Tabla[i][1])]);
         }
       }
-      console.log(Marcadores1);
+      console.log(Marcadores1[1]);
 
       Inicio1.setLatLng([parseFloat(Marcadores1[0][0]), parseFloat(Marcadores1[0][1])]);
         
