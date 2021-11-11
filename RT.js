@@ -77,7 +77,7 @@
         $('#rpmid').load("rpm.php");
 
         for(i=1;i<=2;i++){
-          console.log(date);
+
           console.log('Hola');
         $('#time'+i).load("./Fecha"+i+".php", function() {
            console.log('Hola2');
