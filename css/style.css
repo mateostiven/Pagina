@@ -7,10 +7,6 @@ a.brand img {
 .profile, .skills, .work, .resume {
 	padding:30px 0;
 }
-.skills {
-	width:auto;
-	margin: 0 20px;
-}
 .profile h2, .skills h2, .work h2, .resume h2 {
 	font-weight:normal;
 	color: #39D084;
