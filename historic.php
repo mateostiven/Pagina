@@ -256,7 +256,7 @@
 
 
         const taxi = document.getElementById('Taxi');
-        taxi.addEventListener('change');
+       
         var taxiv = taxi.value;
 
         var Mensaje_date = new String("");
