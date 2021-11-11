@@ -275,11 +275,11 @@
       
       if(M1!=0){
         Inicio1.setLatLng([parseFloat(Marcadores1[0][0]), parseFloat(Marcadores1[0][1])]);
-        //Fin1.setLatlng([parseFloat(Marcadores1[Marcadores1.length - 1][0]), parseFloat(Marcadores1[Marcadores1.length - 1][1])]);
+        Fin1.setLatLng([parseFloat(Marcadores1[Marcadores1.length-1][0]), parseFloat(Marcadores1[Marcadores1.length-1][1])]);
       }
       if(M2!=0){  
         Inicio2.setLatLng([parseFloat(Marcadores2[0][0]), parseFloat(Marcadores2[0][1])]);
-        //Fin2.setLatlng([parseFloat(Marcadores2[Marcadores2.length - 1][0]), parseFloat(Marcadores2[Marcadores2.length - 1][1])]);
+        Fin2.setLatLng([parseFloat(Marcadores2[Marcadores2.length-1][0]), parseFloat(Marcadores2[Marcadores2.length-1][1])]);
       }
       
       Ntaxi=document.getElementById('Taxi').value;
@@ -335,13 +335,13 @@
 
       var recorrido2 = document.getElementById('range2');
 	    recorrido2.setAttribute("max", Marcadores2.length -1);
-      
+
       var range1 = document.getElementById('range1');
       var range2 = document.getElementById('range2');
       if(M1!=0){
         range1.addEventListener('mousemove',function(){
           var valor1 = range1.value;
-          console.log(valor1);
+
           Mensaje_date1 = Marcadores1[valor1][2];
           Mensaje_rpm1 = Marcadores1[valor1][3];
           Apuntador1.setLatLng([parseFloat(Marcadores1[valor1][0]), parseFloat(Marcadores1[valor1][1])]);          
@@ -353,11 +353,17 @@
         range2.addEventListener('mousemove',function(){
           var valor2 = range2.value;
           Mensaje_date2 = Marcadores2[valor2][2];
-          Apuntador2.setLatLng([parseFloat(Marcadores2[valor1][0]), parseFloat(Marcadores2[valor1][1])]);          
+          Apuntador2.setLatLng([parseFloat(Marcadores2[valor2][0]), parseFloat(Marcadores2[valor2][1])]);          
           $("#dateid2").text(Mensaje_date2);
         });
       }
-      
+
+      if (document.getElementById('Taxi').value==1){
+        map.fitBounds(polyline1.getBounds());
+      };
+      if (document.getElementById('Taxi').value==2){
+        map.fitBounds(polyline2.getBounds());
+      };
       
     });
   });
