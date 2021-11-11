@@ -144,10 +144,10 @@
 <br>
 
 
-<center>
+
 <div id="tablahist">  
-<table  align="center" , class="tg", >
-        <tbody>
+  <table  align="center" , class="tg", >
+      <tbody>
             <tr>
               
             <td class="tg-baqh">Tiempo en el que pasó el Taxi</td>
@@ -160,10 +160,10 @@
                 <td class="tg-0lax"><div id='rpmid'></div></td>
 
             </tr>
-        </tbody>
+      </tbody>
     </table>
-    </div>
-<center>
+  </div>
+
   
   
   <br>
@@ -300,4 +300,3 @@
 
   });
 </script>
-
