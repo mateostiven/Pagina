@@ -18,8 +18,9 @@
         $Tabla[] = array($row['Longitud'], $row['Latitud'], $Fecha, $row['rpm'],$row['Taxi']);
       };
     } else {
-      $Tabla[] = [];
+      $Tabla[] = ['NADA'];
     }
-        echo json_encode($Tabla);
+    
+    echo json_encode($Tabla);
     }
     ?>
