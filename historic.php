@@ -145,26 +145,24 @@
 
 
 <center>
-<div class="table">
-      <table align="center" , class="tg">
-        <thead>
-          <tr>
-            <th class="tg-baqh">RPM de Históricos</th>
-            <th class="tg-0lax">
-              <div id='rpmid'></div>
-            </th>
-          </tr>
-        </thead>
+<div id="tablahist">  
+<table  align="center" , class="tg", >
         <tbody>
-          <tr>
-            <td class="tg-baqh">Tiempo en los que pasó el Taxi</td>
-            <td class="tg-0lax">
-              <div id='dateid'></div>
-            </td>
-          </tr>
-          </tbody>				
-          </table>
-          </div>
+            <tr>
+              
+            <td class="tg-baqh">Tiempo en el que pasó el Taxi</td>
+            <td class="tg-baqh">RPM</td>
+                
+
+            </tr>
+            <tr>
+                <td class="tg-0lax"><div id='dateid'></div></td>
+                <td class="tg-0lax"><div id='rpmid'></div></td>
+
+            </tr>
+        </tbody>
+    </table>
+    </div>
 <center>
   
   
