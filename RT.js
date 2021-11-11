@@ -91,7 +91,6 @@
           $('#Hora'+i).text(Hora);
 
         });
-          if(i==1){await setTimeout(async function(){}, 500);}
         $('#coordenadas'+i).load("./Latitud"+i+".php", function() {
             console.log('Hola4');
           var coordenadas = ($("#coordenadas"+i).text());
