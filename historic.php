@@ -281,9 +281,6 @@
         Inicio2.setLatLng([parseFloat(Marcadores2[0][0]), parseFloat(Marcadores2[0][1])]);
         //Fin2.setLatlng([parseFloat(Marcadores2[Marcadores2.length - 1][0]), parseFloat(Marcadores2[Marcadores2.length - 1][1])]);
       }
-      console.log(Marcadores1);
-      console.log(Marcadores1[2]);
-      console.log(Marcadores1[2][2]);
       
       Ntaxi=document.getElementById('Taxi').value;
       if (Ntaxi==1){
@@ -343,6 +340,7 @@
       if(M1!=0){
         range1.addEventListener('mousemove',function(){
           var valor1 = range1.value;
+          console.log(valor1);
           Mensaje_date1 = Marcadores1[valor1][2];
           Mensaje_rpm1 = Marcadores1[valor1][3];
           Apuntador1.setLatLng([parseFloat(Marcadores1[valor1][0]), parseFloat(Marcadores1[valor1][1])]);          
