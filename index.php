@@ -14,7 +14,7 @@
   <div class="navbar-inner">
     <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="index.php"><img src="img/user.jpg" alt=""></a>
       <ul class="nav nav-collapse pull-right">
-        <li><a href="index.php" class="active"> Hola</a></li>
+        <li><a href="index.php" class="active"> Home</a></li>
         <li><a href="realTime.php">Real Time</a></li>
         <li><a href="historic.php"> Historic</a></li>
         <li><a href="aboutUs.php"> About Us</a></li>
