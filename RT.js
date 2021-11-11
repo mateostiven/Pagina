@@ -116,7 +116,7 @@
           }
           
         });
-          if(i==1){setTimeout(function(){}, 1000);}
+          if(i==1){await setTimeout(function(){}, 1000);}
         }
 
         if(Ntaxi!=3){
