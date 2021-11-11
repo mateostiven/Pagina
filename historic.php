@@ -146,23 +146,19 @@
 
 
 <div id="tablahist">  
-  <table  align="center" , class="tg", >
+ <table  align="center" , class="tg", >
       <tbody>
-            <tr>
-              
+          <tr>
             <td class="tg-baqh">Tiempo en el que pasó el Taxi</td>
             <td class="tg-baqh">RPM</td>
-                
-
-            </tr>
-            <tr>
-                <td class="tg-0lax"><div id='dateid'></div></td>
-                <td class="tg-0lax"><div id='rpmid'></div></td>
-
-            </tr>
+          </tr>
+          <tr>
+            <td class="tg-0lax"><div id='dateid'></div></td>
+            <td class="tg-0lax"><div id='rpmid'></div></td>
+          </tr>
       </tbody>
-    </table>
-  </div>
+ </table>
+</div>
 
   
   
@@ -214,7 +210,9 @@
     }
 
     ?>
-    					  
+
+    System.out.print(Marcadores);
+    
     var polylineH = L.polyline(<?php echo json_encode($Poly) ?>).addTo(map);
 
     var Marcadores = <?php echo json_encode($Marcadores) ?>;
@@ -256,7 +254,7 @@
 
 
         const taxi = document.getElementById('Taxi');
-       
+        
         var taxiv = taxi.value;
 
         var Mensaje_date = new String("");
@@ -264,6 +262,11 @@
 
 	      var recorrido = document.getElementById('range');
 	      recorrido.setAttribute("max", Marcadores.length -1);
+
+
+        Marcador = L.marker([0, 0], {
+          icon: pointer
+          }).addTo(map)
 
         var range = document.getElementById('range');
           range.addEventListener('mousemove',function(){
@@ -274,8 +277,7 @@
           Mensaje_date = Marcadores[valor][2];
           Mensaje_rpm = Marcadores[valor][3];
 
-          Marcador = new L.marker([parseFloat(Marcadores[0][0]), parseFloat(Marcadores[0][1])], {
-          icon: pointer}).addTo(map)
+
 
           Marcador.setLatLng([parseFloat(Marcadores[valor][0]), parseFloat(Marcadores[valor][1])]);
 
