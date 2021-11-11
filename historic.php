@@ -275,11 +275,11 @@
       
       if(M1!=0){
         Inicio1.setLatLng([parseFloat(Marcadores1[0][0]), parseFloat(Marcadores1[0][1])]);
-        Fin1.setLatlng([parseFloat(Marcadores1[Marcadores1.length - 1][0]), parseFloat(Marcadores1[Marcadores1.length - 1][1])]);
+        //Fin1.setLatlng([parseFloat(Marcadores1[Marcadores1.length - 1][0]), parseFloat(Marcadores1[Marcadores1.length - 1][1])]);
       }
       if(M2!=0){  
         Inicio2.setLatLng([parseFloat(Marcadores2[0][0]), parseFloat(Marcadores2[0][1])]);
-        Fin2.setLatlng([parseFloat(Marcadores2[Marcadores2.length - 1][0]), parseFloat(Marcadores2[Marcadores2.length - 1][1])]);
+        //Fin2.setLatlng([parseFloat(Marcadores2[Marcadores2.length - 1][0]), parseFloat(Marcadores2[Marcadores2.length - 1][1])]);
       }
     
       Ntaxi=document.getElementById('Taxi').value;
