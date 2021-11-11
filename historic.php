@@ -143,12 +143,28 @@
 <br>
 <br>
 
-<label align = "center" for="rpmid">RPM de históricos:</label>
+
 <center>
-  <textarea  resize: none; readonly id="rpmid" name="rpmid" rows="1" cols="50">
-
-  </textarea>
-  <center>
+<div class="table">
+      <table align="center" , class="tg">
+        <thead>
+          <tr>
+            <th class="tg-baqh">RPM de Históricos</th>
+            <th class="tg-0lax">
+              <div id='rpmid'></div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tg-baqh">Tiempo en los que pasó el Taxi</td>
+            <td class="tg-0lax">
+              <div id='dateid'></div>
+            </td>
+          </tr>
+          </table>
+          </div>
+<center>
   
   
   <br>
@@ -156,19 +172,7 @@
   <br>
   <br>
 
-  <label align = "center" for="dateid">Tiempos en los que pasó el Taxi:</label>  
-  <center>
-  <textarea  resize: none; readonly id="dateid" name="dateid" rows="1" cols="50">
-
-  </textarea>
-  <center>
   
-  
-  <br>
-  <br>
-  <br>
-  <br>
-
 </body>
 
 </html>
@@ -251,8 +255,8 @@
     }).bindPopup(Marcadores[Marcadores.length - 1][2]).addTo(map)
 	
 
-        Mensaje_date = new String("");
-        Mensaje_rpm = new String("");
+        var Mensaje_date = new String("");
+        var Mensaje_rpm = new String("");
 
 	      var recorrido = document.getElementById('range');
 	      recorrido.setAttribute("max", Marcadores.length -1);
@@ -277,8 +281,8 @@
 
           }
           
-          $("#rpmid").val(Mensaje_rpm);
-          $("#dateid").val(Mensaje_date);
+          $("#rpmid").text(Mensaje_rpm);
+          $("#dateid").text(Mensaje_date);
           
         
 
@@ -297,3 +301,4 @@
 
   });
 </script>
+
