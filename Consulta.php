@@ -21,4 +21,5 @@
     }
     
     echo json_encode($Tabla);
+    
     ?>
