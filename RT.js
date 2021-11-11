@@ -81,8 +81,9 @@
           console.log('Hola');
         $('#time'+i).load("./Fecha"+i+".php", function() {
            console.log('Hola2');
+          console.log(i);
           var date = new Date(parseFloat($("#time"+i).text()));
-
+          
           var date2 = date.toString();
 
           var Fecha_Hora = date2.split(" ");
@@ -90,12 +91,14 @@
           var Fecha = "" + Fecha_Hora[0] + " - " + Fecha_Hora[1] + " - " + Fecha_Hora[2] + " - " + Fecha_Hora[3] + "";
 
           var Hora= "" + Fecha_Hora[4] + "";
-
+          console.log(date);
+          console.log(i);
           $('#Fecha'+i).text(Fecha);
           $('#Hora'+i).text(Hora);
 
         });
         console.log('Hola3');
+          console.log(date);
         $('#coordenadas'+i).load("./Latitud"+i+".php", function() {
             console.log('Hola4');
           var coordenadas = ($("#coordenadas"+i).text());
@@ -119,7 +122,7 @@
           }
           
         });
-          if(i==1){await setTimeout(function(){}, 1000);}
+          if(i==1){setTimeout(function(){}, 1000);}
         }
 
         if(Ntaxi!=3){
