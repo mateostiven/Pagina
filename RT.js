@@ -88,7 +88,6 @@
           var Hora= "" + Fecha_Hora[4] + "";
           $('#Fecha'+i).text(Fecha);
           $('#Hora'+i).text(Hora);
-          A=i;
         });
         $('#coordenadas'+i).load("./Latitud"+i+".php", function() {
           var coordenadas = ($("#coordenadas"+i).text());
@@ -109,12 +108,7 @@
             polyline2.addLatLng([parseFloat($('#Latitud2').text()), parseFloat($('#Longitud2').text())]);
             Marcador2.setLatLng([parseFloat($('#Latitud2').text()), parseFloat($('#Longitud2').text())]);
           }
-          A=i;
         });
-          A=-1;
-
-        
-
         if(Ntaxi!=3){
         map.panTo(new L.LatLng(parseFloat($('#Latitud'+Ntaxi).text()), parseFloat($('#Longitud'+Ntaxi).text())));
         }
@@ -131,34 +125,34 @@
         if (Ntaxi==1){
             $('#TablaT1').show();
             $('#TablaT2').hide();
-            polyline1.addTo(map);
+            map.addLayer(polyline1);
             map.removeLayer(polyline2);
-            Marcador1.addTo(map);
+            map.addLayer(Marcador1);
             map.removeLayer(Marcador2);
-            Inicio1.addTo(map);
+            map.addLayer(Inicio1);
             map.removeLayer(Inicio2);
         };
         if (Ntaxi==2){
             $('#TablaT1').hide();
             $('#TablaT2').show();
 
-            polyline2.addTo(map);
+            map.addLayer(polyline2);
             map.removeLayer(polyline1);
-            Marcador2.addTo(map);
+            map.addLayer(Marcador2);
             map.removeLayer(Marcador1);
-            Inicio2.addTo(map);
+            map.addLayer(Inicio2);
             map.removeLayer(Inicio1);
 
         }; 
         if (Ntaxi==3){
             $('#TablaT1').show();
             $('#TablaT2').show();
-            polyline1.addTo(map);
-            polyline2.addTo(map);
-            Marcador1.addTo(map);
-            Marcador2.addTo(map);
-            Inicio1.addTo(map);
-            Inicio2.addTo(map);
+            map.addLayer(polyline1);
+            map.addLayer(Marcador1);
+            map.addLayer(Inicio1);
+            map.addLayer(polyline2);
+            map.addLayer(Marcador2);
+            map.addLayer(Inicio2);
         };
         
       });
