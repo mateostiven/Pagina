@@ -240,7 +240,7 @@
     Inicio2= new L.marker([0,0], {icon: inicio});
     Fin1=new L.marker([0,0], {icon: fin});
     Fin2=new L.marker([0,0], {icon: fin});
-    Apuntador1 = new L.marker([0, 0], {icon: pointer});
+    Apuntador1 = new L.marker([0, 0], {icon: pointer2});
     Apuntador2 = new L.marker([0, 0], {icon: pointer});
     
     polyline1= L.polyline([]); 
