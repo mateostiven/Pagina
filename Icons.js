@@ -25,8 +25,19 @@ var fin = new L.Icon({
   var pointer = new L.Icon({
     iconUrl: 'down.png',
     iconSize: [40, 40],
-    iconAnchor: [10, 20],
-    popupAnchor: [0, 10]
+    iconAnchor: [12, 45],
+    popupAnchor: [1, -41],
+    shadowSize: [41, 41]
+
+
+  });
+
+  var pointer2 = new L.Icon({
+    iconUrl: 'downred.png',
+    iconSize: [40, 40],
+    iconAnchor: [12, 45],
+    popupAnchor: [1, -41],
+    shadowSize: [41, 41]
 
 
   });
