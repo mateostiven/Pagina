@@ -236,8 +236,8 @@
     });
     OpenStreetMap_Mapnik.addTo(map);
 
-    Inicio1= new L.marker([0,0], {icon: inicio});
-    Inicio2= new L.marker([0,0], {icon: inicio});
+    Inicio1= new L.marker([0,0], {icon: Inicio2});
+    Inicio2= new L.marker([0,0], {icon: Inicio});
     Fin1=new L.marker([0,0], {icon: fin});
     Fin2=new L.marker([0,0], {icon: fin});
     Apuntador1 = new L.marker([0, 0], {icon: pointer});
@@ -339,7 +339,7 @@
       var range1 = document.getElementById('range1');
       var range2 = document.getElementById('range2');
       if(M1!=0){
-        range1.addEventListener('mousemove',function(){
+        range1.addEventListener('changevalue',function(){
           var valor1 = range1.value;
 
           Mensaje_date1 = Marcadores1[valor1][2];
@@ -350,7 +350,7 @@
         });
       }
       if(M2!=0){
-        range2.addEventListener('mousemove',function(){
+        range2.addEventListener('changevalue',function(){
           var valor2 = range2.value;
           Mensaje_date2 = Marcadores2[valor2][2];
           Apuntador2.setLatLng([parseFloat(Marcadores2[valor2][0]), parseFloat(Marcadores2[valor2][1])]);          

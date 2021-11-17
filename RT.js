@@ -21,6 +21,13 @@
       shadowSize: [41, 41]
     });
 
+    var inicio2 = new L.Icon({
+      iconUrl: 'startpoint2.png',
+      iconSize: [40, 40],
+      iconAnchor: [10, 20],
+      popupAnchor: [0, 0]
+    });
+
     var fin = new L.Icon({
       iconUrl: 'finalpoint.png',
       shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -50,7 +57,7 @@
         var Longitud1 = "" + coordenadas_1[0] + "";
   
         Inicio1 = L.marker([parseFloat(Latitud1), parseFloat(Longitud1)], {
-          icon: inicio
+          icon: inicio2
         }).addTo(map);
   
       });

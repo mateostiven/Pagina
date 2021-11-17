@@ -15,11 +15,18 @@ var fin = new L.Icon({
     popupAnchor: [0, 0]
   });
 
+  var inicio2 = new L.Icon({
+    iconUrl: 'startpoint2.png',
+    iconSize: [40, 40],
+    iconAnchor: [10, 20],
+    popupAnchor: [0, 0]
+  });
+
   var pointer = new L.Icon({
     iconUrl: 'down.png',
     iconSize: [40, 40],
     iconAnchor: [10, 20],
-    popupAnchor: [0, 0]
+    popupAnchor: [0, 10]
 
 
   });
