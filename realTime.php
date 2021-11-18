@@ -92,7 +92,7 @@
     <table  align="center" , class="tg", >
         <tbody>
             <tr>
-                <td class="tg-9wq8" rowspan=2><FONT COLOR="red">TAXI 1</FONT></td>
+                <td class="tg-9wq8" rowspan=2><FONT COLOR="blue">TAXI 1</FONT></td>
                 <td class="tg-baqh">FECHA</td>
                 <td class="tg-baqh">HORA</td>
                 <td class="tg-baqh">LONGITUD</td>
@@ -114,7 +114,7 @@
     <table  align="center" , class="tg", >
         <tbody>
             <tr>
-                <td class="tg-9wq8" rowspan=2> <FONT COLOR="blue">TAXI 2</FONT></td>
+                <td class="tg-9wq8" rowspan=2> <FONT COLOR="red">TAXI 2</FONT></td>
                 <td class="tg-baqh"> FECHA</td>
                 <td class="tg-baqh">HORA</td>
                 <td class="tg-baqh">LONGITUD</td>
